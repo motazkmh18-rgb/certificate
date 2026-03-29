@@ -3,13 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>الشهادات الأجنبية</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
+        /* Loading your local fonts */
+        @font-face {
+            font-family: 'DroidNaskh';
+            src: url('fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'DroidKufi';
+            src: url('fonts/Droid-Arabic-Kufi.ttf.woff') format('woff');
+            font-weight: bold;
+        }
+
         body {
             background: rgb(204,204,204);
             margin: 0;
-            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            font-family: 'DroidNaskh', serif;
             color: #000;
         }
 
@@ -24,11 +36,11 @@
             overflow: hidden;
         }
 
-        /* QR Code Position - Top Left */
+        /* QR Code - Top Left */
         .imagediv {
             position: absolute;
-            top: 40px;
-            left: 40px;
+            top: 55px;
+            left: 55px;
         }
 
         #qr-code {
@@ -36,41 +48,40 @@
             height: 130px;
         }
 
-        /* Metadata positions - Top Right */
+        /* Metadata - Top Right */
         .metadata-container {
             position: absolute;
-            top: 150px; /* Adjusted to sit lower like the image */
-            right: 80px;
+            top: 175px; 
+            right: 110px;
             text-align: right;
             font-size: 24px;
-            line-height: 1.1;
-            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
-        /* Certificate Body */
+        /* Main Content Body */
         .content-area {
             position: absolute;
-            top: 360px;
+            top: 400px;
             width: 100%;
             text-align: right;
-            line-height: 2.2;
-            padding-right: 80px;
+            line-height: 2.3;
+            padding-right: 110px;
             box-sizing: border-box;
         }
 
         .main-text { 
-            font-size: 25px; 
-            font-weight: 400; /* Normal weight exactly as image */
-            word-spacing: 2px;
+            font-size: 26px; 
+            font-weight: normal; 
         }
 
-        /* Signature Section - Bottom Left */
+        /* Signature Section - Bottom Left using Kufi */
         .signature-section {
             position: absolute;
-            bottom: 60px;
-            left: 100px;
-            font-size: 30px;
-            font-weight: 700; /* Only this is bold */
+            bottom: 70px;
+            left: 110px;
+            font-family: 'DroidKufi', sans-serif;
+            font-size: 32px;
+            font-weight: bold;
         }
 
         @media print {
@@ -111,14 +122,13 @@
 </page>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-
 <script>
     window.onload = function() {
-        var qr = new QRious({
+        new QRious({
             element: document.getElementById('qr-code'),
-            size: 200,
+            size: 250,
             value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-            level: 'M'
+            level: 'H'
         });
     };
 </script>
