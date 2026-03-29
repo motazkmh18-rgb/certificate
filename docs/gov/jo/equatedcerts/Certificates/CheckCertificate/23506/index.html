@@ -5,6 +5,54 @@
     <title>الشهادات الأجنبية</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* ========== FONT FACE DEFINITIONS ========== */
+        @font-face {
+            font-family: 'Droid-Arabic-Kufi';
+            src: local('Droid Arabic Kufi'), local('DroidArabicKufi'), local('Traditional Arabic'), 
+                 url('https://fonts.gstatic.com/ea/droidarabickufi/v4/DroidKufi-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Droid-Arabic-Naskh';
+            src: local('Droid Arabic Naskh'), local('DroidArabicNaskh'), local('Traditional Arabic'),
+                 url('https://fonts.gstatic.com/ea/droidarabicnaskh/v4/DroidNaskh-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Calibri';
+            src: local('Calibri'), local('Calibri Regular'), local('Arial');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Noto Naskh Arabic';
+            src: local('Noto Naskh Arabic'), local('NotoNaskhArabic-Regular'),
+                 url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Cairo';
+            src: local('Cairo'), local('Cairo Regular'),
+                 url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Import Google Fonts as fallbacks */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap');
+
         /* ========== CLEAR DIV STYLES ========== */
         .cleardiv {
             clear: both !important;
@@ -246,21 +294,21 @@
             padding-right: 90px;
             font-size: 20px;
             line-height: 25px;
-            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Naskh', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         .my-marginforTOSaudi {
             padding-right: 60px;
             font-size: 20px;
             line-height: 25px;
-            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Naskh', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         .my-marginForegin {
             padding-right: 50px;
             font-size: 20px;
             line-height: 25px;
-            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Naskh', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         .my-marginForeginEn {
@@ -274,7 +322,7 @@
             left: 177px;
             font-size: 23px;
             line-height: 15px;
-            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
             top: 91%;
             position: absolute;
             font-weight: bold;
@@ -284,7 +332,7 @@
             right: 300px;
             font-size: 23px;
             line-height: 15px;
-            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
             top: 91%;
             position: relative;
             font-weight: bold;
@@ -316,7 +364,7 @@
             padding-right: 383px;
             font-size: 25px;
             line-height: 25px;
-            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         .my-marginArabicCerts3 {
@@ -330,7 +378,7 @@
             padding-right: 383px;
             font-size: 18px;
             line-height: 25px;
-            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         .my-marginArabicTempDoc3 {
@@ -354,7 +402,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Droid-Arabic-Naskh', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
         page {
@@ -418,7 +466,7 @@
         .qr-caption {
             margin-top: 2mm;
             font-size: 6mm;
-            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', sans-serif;
+            font-family: 'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', sans-serif;
             font-weight: bold;
             white-space: nowrap;
             line-height: 1.1;
@@ -495,13 +543,13 @@
         </div>
 
         <div class="rightSerialNumdivForeign">
-            <div style="float:right; font-size:24px">202206221012041</div>
+            <div style="float:right; font-size:24px; font-family:'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', sans-serif;">202206221012041</div>
         </div>
         <div class="rightDatedivForeign">
-            <div style="float:right; font-size:24px">1443/11/23</div>
+            <div style="float:right; font-size:24px; font-family:'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', sans-serif;">1443/11/23</div>
         </div>
         <div class="rightHijriDatedivForeign">
-            <div style="float:right; font-size:24px">2022/06/22</div>
+            <div style="float:right; font-size:24px; font-family:'Droid-Arabic-Kufi', 'Noto Naskh Arabic', 'Cairo', 'Traditional Arabic', sans-serif;">2022/06/22</div>
         </div>
         <div class="cleardiv">
             <div class="center cleardiv">
