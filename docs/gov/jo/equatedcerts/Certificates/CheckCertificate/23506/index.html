@@ -5,6 +5,9 @@
     <title>الشهادات الأجنبية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Prevent iOS from detecting phone numbers -->
+    <meta name="format-detection" content="telephone=no">
+
     <style>
         body {
             background: rgb(204,204,204);
@@ -44,6 +47,18 @@
             text-align: right;
             font-size: 24px;
             line-height: 1.4;
+
+            /* Fix for mobile number styling */
+            color: black !important;
+            text-decoration: none !important;
+            -webkit-text-fill-color: black; /* iOS Safari */
+            -webkit-touch-callout: none;    /* Disable callout menu */
+        }
+
+        .metadata-container div {
+            color: black !important;
+            text-decoration: none !important;
+            -webkit-text-fill-color: black;
         }
 
         .serial-num { margin-right: 56px; }
