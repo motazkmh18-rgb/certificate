@@ -3,14 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>الشهادات الأجنبية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             background: rgb(204,204,204);
             margin: 0;
-            /* Using Noto Naskh with a slight weight adjustment */
-            font-family: 'Noto Naskh Arabic', serif;
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
             color: #000;
         }
 
@@ -28,9 +27,8 @@
         /* QR Code Position - Top Left */
         .imagediv {
             position: absolute;
-            top: 25px;
-            left: 55px;
-            z-index: 100;
+            top: 40px;
+            left: 40px;
         }
 
         #qr-code {
@@ -41,8 +39,8 @@
         /* Metadata positions - Top Right */
         .metadata-container {
             position: absolute;
-            top: 60px;
-            right: 120px;
+            top: 150px; /* Adjusted to sit lower like the image */
+            right: 80px;
             text-align: right;
             font-size: 24px;
             line-height: 1.1;
@@ -52,28 +50,27 @@
         /* Certificate Body */
         .content-area {
             position: absolute;
-            top: 40%;
+            top: 360px;
             width: 100%;
             text-align: right;
-            line-height: 2.3;
-            padding-right: 120px;
+            line-height: 2.2;
+            padding-right: 80px;
             box-sizing: border-box;
         }
 
         .main-text { 
             font-size: 25px; 
-            font-weight: 400;
-            /* Adding slight spacing to match the 'clean' look of the scan */
-            letter-spacing: 0.2px;
+            font-weight: 400; /* Normal weight exactly as image */
+            word-spacing: 2px;
         }
 
-        /* Bold ONLY for the signature title */
+        /* Signature Section - Bottom Left */
         .signature-section {
             position: absolute;
             bottom: 60px;
-            left: 120px;
-            font-size: 28px;
-            font-weight: 700;
+            left: 100px;
+            font-size: 30px;
+            font-weight: 700; /* Only this is bold */
         }
 
         @media print {
@@ -117,16 +114,12 @@
 
 <script>
     window.onload = function() {
-        try {
-            new QRious({
-                element: document.getElementById('qr-code'),
-                size: 200,
-                value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-                level: 'M'
-            });
-        } catch (e) {
-            console.error("QR Error: ", e);
-        }
+        var qr = new QRious({
+            element: document.getElementById('qr-code'),
+            size: 200,
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
+            level: 'M'
+        });
     };
 </script>
 
