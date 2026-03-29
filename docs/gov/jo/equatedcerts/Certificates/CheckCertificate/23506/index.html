@@ -28,7 +28,7 @@
         }
 
         /* ============================
-           LAYOUT STYLES (Matched to Image)
+           LAYOUT STYLES (Based on your classes)
            ============================ */
         body {
             background: rgb(204,204,204);
@@ -47,7 +47,7 @@
             overflow: hidden;
         }
 
-        /* QR Position - Matches your .imagediv class */
+        /* QR Position */
         .imagediv {
             clear: both !important;
             top: 15%;
@@ -55,7 +55,7 @@
             position: absolute;
         }
 
-        /* Metadata - Matches your .rightSerialNumdiv logic */
+        /* Metadata - Top Right */
         .rightSerialNumdiv, .rightHijriDatediv, .rightDatediv {
             clear: both !important;
             position: relative;
@@ -69,7 +69,7 @@
         .rightHijriDatediv { top: 22%; }
         .rightDatediv      { top: 23%; }
 
-        /* Main Content Block - Matches your .cleardiv & .my-margin */
+        /* Main Content Block */
         .cleardiv {
             clear: both !important;
             top: 31%;
@@ -85,7 +85,7 @@
             text-align: right;
         }
 
-        /* Signature - Matches your .my-margin2 (Kufi Bold) */
+        /* Signature - Droid Kufi Bold */
         .my-margin2 {
             left: 130px;
             font-size: 30px;
@@ -131,5 +131,19 @@
 </page>
 
 <script>
-    /*! QRious v4.0.2 | (C) 2017 Alasdair Mercer | GPL v3 License */
-    !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):t.QRious=e()}(this,function(){"use strict";function t(t,e){var n;return"function"==typeof Object.create?n=Object.create(t):(s.prototype=t,n=new s,s.prototype=null),e&&i(!0,n,e),n}function e(e,n,s,r){var o=this;return"string"!=typeof e&&(r=s,s=n,n=e,e=null),"function"!=typeof n&&(r=s,s=n,n=function(){return o.apply(this,arguments)}),i(!1,n,o,r),n.prototype=t(o.prototype,s),n.prototype.constructor=n,n.class_=e||o.class_,n.super_=o,n}function i(t,e,i){for(var n,s,a=0,h=(i=o.call(arguments,2)).length;a<h;a++){s=i[a];for(n in s)t&&!r.call(s,n)||(e[n]=s[n])}}function n(){}var s=function(){},r=Object.prototype.hasOwnProperty,o=Array.prototype.slice,a=e;n.class_="Nevis",n.super_=Object,n.extend=a;var h=n,f=h.extend(function(t,e,i){this.qrious=t,this.element=e,this.element.qrious=t,this.enabled=Boolean(i)},{draw:function(t){},getElement:function(){return this.enabled||(this.enabled=!0,this.render()),this.element},getModuleSize:function(t){var e=this.qrious,i=e.padding||0,n=Math.floor((e.size-2*i)/t.width);return Math.max(1,n)},getOffset:function(t){var e=this.qrious,i=e.padding;if(
+    /* Paste the QRious JS code here or reference your local file */
+    /* Then initialize: */
+    window.onload = function() {
+        if (typeof QRious !== 'undefined') {
+            new QRious({
+                element: document.getElementById('qr-code'),
+                size: 140,
+                value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
+                level: 'H'
+            });
+        }
+    };
+</script>
+
+</body>
+</html>
