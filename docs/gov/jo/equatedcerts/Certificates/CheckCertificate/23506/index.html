@@ -5,7 +5,7 @@
     <title>الشهادات الأجنبية</title>
     <style>
         /* ============================
-           FONT DEFINITIONS
+           FONT DEFINITIONS (Fixed Paths)
            ============================ */
         @font-face {
             font-family: 'Droid-Arabic-Kufi';
@@ -27,18 +27,8 @@
             font-style: normal;
         }
 
-        @font-face {
-            font-family: 'Calibri';
-            src: url('../fonts/Calibri.ttf.eot');
-            src: url('../fonts/Calibri.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Calibri.ttf.woff') format('woff'),
-                 url('../fonts/Calibri.ttf.svg#Calibri') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         /* ============================
-           LAYOUT STYLES
+           LAYOUT STYLES (Matched to Image)
            ============================ */
         body {
             background: rgb(204,204,204);
@@ -57,7 +47,7 @@
             overflow: hidden;
         }
 
-        /* QR Position */
+        /* QR Position - Matches your .imagediv class */
         .imagediv {
             clear: both !important;
             top: 15%;
@@ -65,7 +55,7 @@
             position: absolute;
         }
 
-        /* Metadata - Top Right */
+        /* Metadata - Matches your .rightSerialNumdiv logic */
         .rightSerialNumdiv, .rightHijriDatediv, .rightDatediv {
             clear: both !important;
             position: relative;
@@ -79,10 +69,10 @@
         .rightHijriDatediv { top: 22%; }
         .rightDatediv      { top: 23%; }
 
-        /* Main Content Block */
+        /* Main Content Block - Matches your .cleardiv & .my-margin */
         .cleardiv {
             clear: both !important;
-            top: 31%; /* Adjusted from your CSS to match the image height */
+            top: 31%;
             position: relative;
             direction: rtl;
         }
@@ -90,16 +80,15 @@
         .my-margin {
             padding-right: 145px;
             font-size: 26px;
-            line-height: 52px; /* Fixed spacing to match scan */
+            line-height: 52px;
             font-family: 'Droid-Arabic-Naskh';
             text-align: right;
         }
 
-        /* Signature - Droid Kufi */
+        /* Signature - Matches your .my-margin2 (Kufi Bold) */
         .my-margin2 {
             left: 130px;
             font-size: 30px;
-            line-height: 15px;
             font-family: 'Droid-Arabic-Kufi';
             top: 88%;
             position: absolute;
@@ -109,7 +98,7 @@
         @media print {
             body { background: none; }
             page { margin: 0; box-shadow: none; }
-            @page { size: landscape; }
+            @page { size: landscape; margin: 0; }
         }
     </style>
 </head>
@@ -141,17 +130,6 @@
     </div>
 </page>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 <script>
-    window.onload = function() {
-        new QRious({
-            element: document.getElementById('qr-code'),
-            size: 140,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-            level: 'H'
-        });
-    };
-</script>
-
-</body>
-</html>
+    /*! QRious v4.0.2 | (C) 2017 Alasdair Mercer | GPL v3 License */
+    !function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):t.QRious=e()}(this,function(){"use strict";function t(t,e){var n;return"function"==typeof Object.create?n=Object.create(t):(s.prototype=t,n=new s,s.prototype=null),e&&i(!0,n,e),n}function e(e,n,s,r){var o=this;return"string"!=typeof e&&(r=s,s=n,n=e,e=null),"function"!=typeof n&&(r=s,s=n,n=function(){return o.apply(this,arguments)}),i(!1,n,o,r),n.prototype=t(o.prototype,s),n.prototype.constructor=n,n.class_=e||o.class_,n.super_=o,n}function i(t,e,i){for(var n,s,a=0,h=(i=o.call(arguments,2)).length;a<h;a++){s=i[a];for(n in s)t&&!r.call(s,n)||(e[n]=s[n])}}function n(){}var s=function(){},r=Object.prototype.hasOwnProperty,o=Array.prototype.slice,a=e;n.class_="Nevis",n.super_=Object,n.extend=a;var h=n,f=h.extend(function(t,e,i){this.qrious=t,this.element=e,this.element.qrious=t,this.enabled=Boolean(i)},{draw:function(t){},getElement:function(){return this.enabled||(this.enabled=!0,this.render()),this.element},getModuleSize:function(t){var e=this.qrious,i=e.padding||0,n=Math.floor((e.size-2*i)/t.width);return Math.max(1,n)},getOffset:function(t){var e=this.qrious,i=e.padding;if(
