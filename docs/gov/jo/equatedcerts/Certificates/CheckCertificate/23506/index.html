@@ -3,92 +3,100 @@
 <head>
     <meta charset="utf-8">
     <title>الشهادات الأجنبية</title>
-    
     <style>
-        /* Local Font Load */
+        /* Loading your local fonts */
         @font-face {
-            font-family: 'DroidNaskh';
+            font-family: 'Droid-Arabic-Naskh';
             src: url('fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
-            font-weight: normal;
         }
-
         @font-face {
-            font-family: 'DroidKufi';
+            font-family: 'Droid-Arabic-Kufi';
             src: url('fonts/Droid-Arabic-Kufi.ttf.woff') format('woff');
-            font-weight: bold;
         }
 
+        /* Using your exact provided CSS */
         body {
             background: rgb(204,204,204);
             margin: 0;
-            font-family: 'DroidNaskh', serif;
-            color: #000;
+            font-family: 'Droid-Arabic-Naskh', serif;
         }
 
         page {
             background: white;
             display: block;
-            margin: 20px auto;
+            margin: 0 auto;
             position: relative;
             width: 29.7cm;
             height: 21cm;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            overflow: hidden;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
         }
 
-        /* QR Code: Top Left */
+        /* QR Positioning from your classes */
         .imagediv {
+            clear: both !important;
+            top: 15%; /* Adjusted to match image */
+            left: 80px; /* Adjusted to match image */
             position: absolute;
-            top: 115px; /* Aligned with the second line of numbers as per image */
-            left: 85px;
         }
 
-        #qr-code {
-            width: 135px;
-            height: 135px;
-        }
-
-        /* Metadata (ID/Dates): Top Right - Droid Naskh */
-        .metadata-container {
-            position: absolute;
-            top: 245px; 
+        /* Metadata Positioning from your classes */
+        .rightSerialNumdiv {
+            clear: both !important;
+            top: 24%;
             right: 145px;
+            position: relative;
             text-align: right;
             font-size: 24px;
-            line-height: 1.25;
-            font-family: 'DroidNaskh', serif;
         }
 
-        /* Main Content: Right Aligned */
-        .content-area {
-            position: absolute;
-            top: 410px;
-            width: 100%;
+        .rightHijriDatediv {
+            clear: both !important;
+            top: 24.5%;
+            right: 145px;
+            position: relative;
             text-align: right;
-            line-height: 2.3;
-            padding-right: 145px;
-            box-sizing: border-box;
+            font-size: 24px;
         }
 
-        .main-text { 
-            font-size: 26px; 
-            font-weight: normal;
+        .rightDatediv {
+            clear: both !important;
+            top: 25%;
+            right: 145px;
+            position: relative;
+            text-align: right;
+            font-size: 24px;
         }
 
-        /* Signature Section: Bottom Left - Droid Kufi Bold */
-        .signature-section {
-            position: absolute;
-            bottom: 125px;
-            left: 115px;
-            font-family: 'DroidKufi', sans-serif;
+        /* Content Area */
+        .cleardiv {
+            clear: both !important;
+            top: 35%; /* Pushes the main text down */
+            position: relative;
+            direction: rtl;
+        }
+
+        .my-margin {
+            padding-right: 145px; /* Matches metadata alignment */
+            font-size: 26px;
+            line-height: 55px; /* Spacing between lines */
+            text-align: right;
+            font-family: 'Droid-Arabic-Naskh';
+        }
+
+        /* Signature from your classes */
+        .my-margin2 {
+            left: 140px;
             font-size: 30px;
+            font-family: 'Droid-Arabic-Kufi';
+            top: 85%;
+            position: absolute;
             font-weight: bold;
         }
 
         @media print {
-            body { background: none; }
+            body { background: none; zoom: 1; }
             page { margin: 0; box-shadow: none; }
-            @page { size: landscape; margin: 0; }
+            @page { size: landscape; }
         }
     </style>
 </head>
@@ -99,14 +107,12 @@
         <canvas id="qr-code"></canvas>
     </div>
 
-    <div class="metadata-container">
-        <div>٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-        <div>١٤٤٣/١١/٢٣</div>
-        <div>٢٠٢٢/٠٦/٢٢</div>
-    </div>
+    <div class="rightSerialNumdiv">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+    <div class="rightHijriDatediv">١٤٤٣/١١/٢٣</div>
+    <div class="rightDatediv">٢٠٢٢/٠٦/٢٢</div>
 
-    <div class="content-area">
-        <div class="main-text">
+    <div class="cleardiv">
+        <div class="my-margin">
             تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية التركية
             <br>
             والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا عام ٢٠٢١
@@ -117,7 +123,7 @@
         </div>
     </div>
 
-    <div class="signature-section">
+    <div class="my-margin2">
         وزير التربية والتعليم
     </div>
 </page>
@@ -127,9 +133,8 @@
     window.onload = function() {
         new QRious({
             element: document.getElementById('qr-code'),
-            size: 200,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-            level: 'H'
+            size: 150,
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
         });
     };
 </script>
