@@ -1,182 +1,104 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="utf-8">
-    <title>الشهادات الأجنبية</title>
-    <meta content="text/html;" charset="utf-8" http-equiv="Content-Type">
-    
-    <style>
-        /* ============================
-           تخصيص الخطوط (Fonts Definitions)
-           ============================ */
-        @font-face {
-            font-family: 'Droid-Arabic-Kufi';
-            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot');
-            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff'),
-                 url('../fonts/Droid-Arabic-Kufi.ttf.svg#Droid-Arabic-Kufi') format('svg');
-            font-weight: bold;
-            font-style: normal;
-        }
+<meta charset="UTF-8">
+<title>شهادة معادلة</title>
 
-        @font-face {
-            font-family: 'Droid-Arabic-Naskh';
-            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot');
-            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff'),
-                 url('../fonts/Droid-Arabic-Naskh.ttf.svg#Droid-Arabic-Naskh') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
+<style>
+body {
+    font-family: "Tahoma", Arial, sans-serif;
+    background: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
 
-        /* ============================
-           تنسيقات التصميم (Certificates.css)
-           ============================ */
-        body {
-            background: rgb(204,204,204);
-            margin: 0 auto;
-        }
+.container {
+    width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
-        page {
-            background: white;
-            display: block;
-            margin: 0 auto;
-            position: relative;
-            box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
-        }
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        page[size="A4"][layout="landscape"] {
-            width: 29.7cm;
-            height: 21cm;
-        }
+.header h2 {
+    margin: 0;
+    color: #1f4e79;
+}
 
-        /* موضع الـ QR Code حسب مواصفاتك */
-        .imagediv {
-            clear: both !important;
-            top: 21%;
-            left: 100px;
-            position: absolute;
-            z-index: 100;
-        }
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        /* تنسيق الـ QR الوهمي (Dummy QR) */
-        #qr-code {
-            display: block;
-            width: 120px;
-            height: 120px;
-            background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 15px 15px;
-            border: 1px solid #000;
-        }
+.table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 15px;
+}
 
-        /* مواضع المعلومات أعلى اليمين */
-        .rightSerialNumdivForeign, .rightDatedivForeign, .rightHijriDatedivForeign {
-            clear: both !important;
-            position: absolute;
-            right: 138px;
-            text-align: right;
-            z-index: 10;
-        }
+.label {
+    background: #f0f0f0;
+    font-weight: bold;
+    width: 35%;
+}
 
-        .rightSerialNumdivForeign { top: 32%; }
-        .rightDatedivForeign      { top: 35.5%; }
-        .rightHijriDatedivForeign { top: 39%; }
+.value {
+    width: 65%;
+}
 
-        /* منطقة النص الأساسي */
-        .cleardiv {
-            clear: both !important;
-            top: 48%;
-            position: absolute;
-            width: 100%;
-            direction: rtl;
-        }
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+</style>
 
-        .my-marginForegin {
-            padding-right: 138px;
-            text-align: right;
-            line-height: 2.3;
-            font-family: 'Droid-Arabic-Naskh';
-        }
-
-        /* تنسيق كلمة وزير التربية والتعليم (Kufi Bold) */
-        .my-marginForegin2 {
-            font-family: 'Droid-Arabic-Kufi', sans-serif !important;
-            font-size: 23px;
-            font-weight: bold;
-            position: absolute;
-            bottom: 8%;
-            left: 177px;
-            white-space: nowrap;
-        }
-
-        @media print {
-            body { background: none; zoom: 1; }
-            page { margin: 0; box-shadow: none; }
-            @page { size: landscape; margin: 0; }
-        }
-    </style>
 </head>
+
 <body>
 
-<page size="A4" layout="landscape">
-    
-    <div class="imagediv">
-        <canvas id="qr-code"></canvas>
+<div class="container">
+
+    <div class="header">
+        <h2>وزارة التربية والتعليم</h2>
+        <p>شهادة معادلة</p>
     </div>
 
-    <div class="rightSerialNumdivForeign">
-        <div style="float:right;font-size:24px">202206221012041</div>
-    </div>
-    <div class="rightDatedivForeign">
-        <div style="float:right;font-size:24px">1443/11/23</div>
-    </div>
-    <div class="rightHijriDatedivForeign">
-        <div style="float:right;font-size:24px">2022/06/22</div>
+    <table class="table">
+        <tr>
+            <td class="label">اسم الطالب</td>
+            <td class="value">محمد أحمد</td>
+        </tr>
+        <tr>
+            <td class="label">رقم الجلوس</td>
+            <td class="value">12041</td>
+        </tr>
+        <tr>
+            <td class="label">التخصص</td>
+            <td class="value">علمي</td>
+        </tr>
+        <tr>
+            <td class="label">المعدل</td>
+            <td class="value">85%</td>
+        </tr>
+        <tr>
+            <td class="label">سنة التخرج</td>
+            <td class="value">2024</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        هذه الصفحة لأغراض العرض فقط
     </div>
 
-    <div class="cleardiv">
-        <div class="center cleardiv">
-            <div style="text-align: right" class="my-marginForegin">
-                <span style="font-size:20px;text-align:right !important;padding-right: 32px;">&#x62A;&#x640;&#x640;&#x634;&#x640;&#x647;&#x640;&#x640;&#x640;&#x62F; &#x648;&#x632;&#x627;&#x631;&#x629; &#x627;&#x644;&#x62A;&#x631;&#x628;&#x640;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x629; &#x648;&#x627;&#x644;&#x62A;&#x639;&#x640;&#x644;&#x64A;&#x640;&#x640;&#x640;&#x645; &#x641;&#x64A; &#x627;&#x644;&#x645;&#x645;&#x644;&#x643;&#x640;&#x640;&#x640;&#x629; &#x627;&#x644;&#x623;&#x631;&#x62F;&#x646;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x640;&#x629; &#x627;&#x644;&#x647;&#x640;&#x640;&#x627;&#x634;&#x640;&#x640;&#x645;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x640;&#x629; &#x623;&#x646; &#x634;&#x640;&#x647;&#x640;&#x640;&#x640;&#x640;&#x640;&#x627;&#x62F;&#x629;</span>
-                <span style="font-size:20px;">&#x627;&#x644;&#x62B;&#x627;&#x646;&#x648;&#x64A;&#x629; &#x627;&#x644;&#x62A;&#x631;&#x643;&#x64A;&#x629;</span>
-                <br><br>
-                <span style="font-size:20px;text-align:right !important;padding-left:30px;">والصادرة عن</span>
-                <span style="font-size:24px;text-align:right !important;padding-left:30px;"> &#x62B;&#x627;&#x646;&#x648;&#x64A;&#x629; &#x627;&#x648;&#x645;&#x64A;&#x62A; &#x627;&#x633;&#x637;&#x646;&#x628;&#x648;&#x644; &#x627;&#x644;&#x62F;&#x648;&#x644;&#x64A;&#x629; &#x627;&#x644;&#x62E;&#x627;&#x635;&#x629; </span>
-                <span style="font-size:20px;text-align:right !important;padding-left:30px;"> / </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:30px;">&#x62A;&#x631;&#x643;&#x64A;&#x627;</span>
-                <span style="font-size:20px;text-align:right !important;padding-left:10px;">عــــام</span>
-                <span style="font-size:24px;text-align:right !important;">2021</span>
-                <br><br>
-                <span style="font-size:20px;text-align:right !important;padding-left:5px;">&#x644;&#x644;&#x637;&#x627;&#x644;&#x628;</span>
-                <span style="font-size:21px;text-align:right !important;padding-left:10px;"> / </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:5px;">&#x641;&#x64A;&#x635;&#x644; &#x639;&#x648;&#x62F;&#x647; &#x62D;&#x627;&#x645;&#x62F; &#x627;&#x644;&#x627;&#x635;&#x641;&#x631;</span>
-                <span style="font-size:20px;text-align:right !important;padding-left:30px;"> &#x627;&#x644;&#x645;&#x648;&#x644;&#x648;&#x62F; &#x641;&#x64A; </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:30px;"> &#x627;&#x644;&#x643;&#x631;&#x643;</span>
-                <span style="font-size:20px;text-align:right !important;padding-left:10px;">بتــاريـخ</span>
-                <span style="font-size:24px;text-align:right !important;">2003/06/10</span>
-                <br><br>
-                <span style="font-size:20px;text-align:right !important;padding-left:1px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:1px;">الفرع / </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:5px;">&#x627;&#x644;&#x639;&#x644;&#x645;&#x64A;</span>
-                <span style="font-size:20px;text-align:right !important;padding-left:5px;">وبمعدل </span>
-                <span style="font-size:24px;text-align:right !important;padding-left:5px;">(85%)</span>
-                
-                <div style="margin-top: 50px;">
-                    <span class="my-marginForegin2"> وزير التربية والتعليم </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</page>
-
-<script type="text/javascript">
-    var replaceDigits = function () {
-        var map = ["\u0660", "\u0661", "\u0662", "\u0663", "\u0664", "\u0665", "\u0666", "\u0667", "\u0668", "\u0669"];
-        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
-        document.body.innerHTML = document.body.innerHTML.replace(/\.(?=[^<>]*(<|$))/g, "\u066B");
-        document.body.innerHTML = document.body.innerHTML.replace(/\%(?=[^<>]*(<|$))/g, "\u066A");
-    }
-    window.onload = replaceDigits;
-</script>
+</div>
 
 </body>
 </html>
