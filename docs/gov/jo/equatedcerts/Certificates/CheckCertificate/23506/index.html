@@ -5,124 +5,481 @@
     <title>الشهادات الأجنبية</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Embedded fonts.css equivalent - Arabic friendly fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ========== CLEAR DIV STYLES ========== */
+        .cleardiv {
+            clear: both !important;
+            top: 37%;
+            position: relative;
+            direction: rtl;
         }
 
+        .cleardivTempDoc {
+            clear: both !important;
+            top: 31%;
+            position: relative;
+            direction: rtl;
+        }
+
+        .cleardivEn {
+            clear: both !important;
+            top: 42%;
+            position: relative;
+            direction: ltr;
+        }
+
+        .cleardivArabicCers {
+            clear: both !important;
+            top: 29%;
+            position: relative;
+        }
+
+        /* ========== NUMBER DIV POSITIONS ========== */
+        .leftnumberdiv {
+            clear: both !important;
+            top: 101%;
+            left: 15px;
+            position: absolute;
+        }
+
+        .topleftnumberdiv {
+            clear: both !important;
+            position: absolute;
+            left: -8px;
+            top: -8mm;
+            z-index: 11;
+        }
+
+        .toprightnumberdiv {
+            clear: both !important;
+            position: absolute;
+            right: 18px;
+            top: -8mm;
+            z-index: 11;
+        }
+
+        .rightnumberdiv {
+            clear: both !important;
+            top: 22%;
+            left: 850px;
+            position: sticky;
+        }
+
+        .rightSerialNumdiv {
+            clear: both !important;
+            top: 24%;
+            right: 194px;
+            position: relative;
+        }
+
+        .leftSerialNumdiv {
+            clear: both !important;
+            top: 30%;
+            left: 144px;
+            position: relative;
+        }
+
+        /* ========== QR STACK STYLES ========== */
+        .qr-stack-right {
+            display: inline-block;
+            text-align: right;
+        }
+
+        .qr-stack-right canvas {
+            display: block;
+            width: 32mm !important;
+            height: 32mm !important;
+            margin: 0;
+        }
+
+        .qr-top-number-en {
+            display: block;
+            float: none;
+            font-size: 7mm;
+            font-family: Calibri, 'Droid-Arabic-Kufi', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 3mm;
+            white-space: nowrap;
+            direction: ltr;
+        }
+
+        .qr-caption-en {
+            margin-top: 2mm;
+            font-size: 6mm;
+            font-family: Calibri, 'Droid-Arabic-Kufi', sans-serif;
+            font-weight: 700;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        /* ========== IMAGE DIV POSITIONS ========== */
+        .imagedivEn {
+            clear: both !important;
+            top: 18%;
+            right: 100px;
+            position: absolute;
+        }
+
+        .imagediv {
+            clear: both !important;
+            top: 21%;
+            left: 100px;
+            position: absolute;
+        }
+
+        .imagediv2 {
+            clear: both !important;
+            top: 38%;
+            left: 250px;
+            position: relative;
+        }
+
+        .imagediv3 {
+            clear: both !important;
+            top: -38%;
+            left: 51px;
+            position: absolute;
+        }
+
+        .imagedivForTo {
+            clear: both !important;
+            top: 21%;
+            right: 930px;
+            position: relative;
+        }
+
+        .imagedivForTo2 {
+            clear: both !important;
+            top: 113px;
+            left: 113px;
+            position: relative;
+        }
+
+        /* ========== DATE DIV POSITIONS ========== */
+        .leftDatediv {
+            clear: both !important;
+            top: 30%;
+            left: 128px;
+            position: relative;
+        }
+
+        .rightSide {
+            clear: both !important;
+            top: 34%;
+            left: 50px;
+            position: relative;
+        }
+
+        .rightDatediv {
+            clear: both !important;
+            top: 24%;
+            right: 138px;
+            position: relative;
+        }
+
+        .rightHijriDatediv {
+            clear: both !important;
+            top: 26%;
+            right: 138px;
+            position: relative;
+        }
+
+        .rightSerialNumdivForeign {
+            clear: both !important;
+            top: 32%;
+            right: 194px;
+            position: relative;
+        }
+
+        .rightDatedivForeign {
+            clear: both !important;
+            top: 32%;
+            right: 138px;
+            position: relative;
+        }
+
+        .rightHijriDatedivForeign {
+            clear: both !important;
+            top: 32%;
+            right: 138px;
+            position: relative;
+        }
+
+        /* ========== GENERAL DIV ========== */
+        div {
+            text-align: center;
+        }
+
+        /* ========== FATHER POSITIONS ========== */
+        .father {
+            position: absolute;
+            top: -41%;
+            left: 36%;
+        }
+
+        .fatherArabicCerts {
+            position: absolute;
+            top: -41%;
+            left: 34%;
+        }
+
+        .fatherTempDoc {
+            position: absolute;
+            top: -19%;
+            left: 31%;
+        }
+
+        .UpfatherArabicCerts {
+            position: absolute;
+            top: -43%;
+            left: 35%;
+        }
+
+        .DownfatherArabicCerts {
+            position: relative;
+            top: 30%;
+            left: 7%;
+        }
+
+        /* ========== MARGIN STYLES ========== */
+        .my-margin {
+            padding-right: 90px;
+            font-size: 20px;
+            line-height: 25px;
+            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .my-marginforTOSaudi {
+            padding-right: 60px;
+            font-size: 20px;
+            line-height: 25px;
+            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .my-marginForegin {
+            padding-right: 50px;
+            font-size: 20px;
+            line-height: 25px;
+            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .my-marginForeginEn {
+            padding-left: 70px;
+            font-size: 20px;
+            line-height: 25px;
+            font-family: Calibri, 'Segoe UI', Arial, sans-serif;
+        }
+
+        .my-margin2 {
+            left: 177px;
+            font-size: 23px;
+            line-height: 15px;
+            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            top: 91%;
+            position: absolute;
+            font-weight: bold;
+        }
+
+        .my-marginForegin2 {
+            right: 300px;
+            font-size: 23px;
+            line-height: 15px;
+            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+            top: 91%;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .my-marginForeginEn2 {
+            right: 177px;
+            font-size: 23px;
+            line-height: 15px;
+            top: 128%;
+            position: absolute;
+            font-weight: bold;
+        }
+
+        .my-margin3 {
+            font-size: 20px;
+            line-height: 25px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .my-marginArabicCerts {
+            padding-right: 100px;
+            font-size: 25px;
+            line-height: 25px;
+        }
+
+        .my-marginArabicCerts2 {
+            padding-right: 383px;
+            font-size: 25px;
+            line-height: 25px;
+            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .my-marginArabicCerts3 {
+            font-size: 25px;
+            line-height: 25px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .my-marginArabicTempDoc2 {
+            padding-right: 383px;
+            font-size: 18px;
+            line-height: 25px;
+            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        .my-marginArabicTempDoc3 {
+            font-size: 25px;
+            line-height: 25px;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        /* ========== UTILITY ========== */
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        /* ========== BODY AND PAGE STYLES ========== */
         body {
-            font-family: 'Tajawal', 'Segoe UI', 'Traditional Arabic', 'Arial', sans-serif;
-            background-color: #f5f5f5;
+            background: rgb(204,204,204);
+            margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            font-family: 'Droid Arabic Naskh', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        page {
+            background: white;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.0cm;
+            box-shadow: 0 0 0.0cm rgba(0,0,0,0.0);
+            position: relative;
+        }
+
+        page[size="A4"] {
+            width: 21cm;
+            height: 29.7cm;
         }
 
         page[size="A4"][layout="landscape"] {
-            width: 297mm;
-            min-height: 210mm;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin: 0 auto;
-            position: relative;
-            padding: 15mm;
-            page-break-after: avoid;
-            break-inside: avoid;
+            width: 29.7cm;
+            height: 21cm;
         }
 
-        /* Embedded Certificates.css styles */
-        .imagediv {
-            position: relative;
-            margin-bottom: 20px;
+        page[size="A3"] {
+            width: 29.7cm;
+            height: 42cm;
         }
 
-        .topleftnumberdiv {
+        page[size="A3"][layout="landscape"] {
+            width: 42cm;
+            height: 29.7cm;
+        }
+
+        page[size="A5"] {
+            width: 14.8cm;
+            height: 21cm;
+        }
+
+        page[size="A5"][layout="landscape"] {
+            width: 21cm;
+            height: 14.8cm;
+        }
+
+        /* ========== QR CONTAINER STYLES ========== */
+        .qr-container {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 70mm;
+            left: 35mm;
+            width: 32mm;
+            text-align: center;
+            transform: none !important;
+            pointer-events: none;
+            z-index: 10;
         }
 
+        .qr-container canvas {
+            display: block;
+            width: 32mm !important;
+            height: 32mm !important;
+            margin: 0 auto;
+        }
+
+        .qr-caption {
+            margin-top: 2mm;
+            font-size: 6mm;
+            font-family: 'Droid Arabic Kufi', 'Traditional Arabic', sans-serif;
+            font-weight: bold;
+            white-space: nowrap;
+            line-height: 1.1;
+        }
+
+        /* ========== INVALID WATERMARK ========== */
+        .invalid-watermark {
+            position: fixed !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) rotate(-25deg) !important;
+            width: 140% !important;
+            text-align: center !important;
+            font-size: 220px !important;
+            font-weight: 900 !important;
+            color: rgba(255,0,0,0.25) !important;
+            z-index: 999999 !important;
+            pointer-events: none !important;
+            white-space: nowrap !important;
+            letter-spacing: 2px !important;
+        }
+
+        /* ========== PRINT STYLES ========== */
+        @media print {
+            body {
+                margin: 0 auto;
+                background: white;
+                padding: 0;
+            }
+            
+            page {
+                margin: 0;
+                box-shadow: 0;
+            }
+            
+            .qr-container {
+                top: 70mm;
+                left: 35mm;
+                width: 32mm;
+            }
+            
+            .qr-container canvas {
+                width: 32mm !important;
+                height: 32mm !important;
+            }
+            
+            .invalid-watermark {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* Additional styles for certificate content */
+        .center {
+            text-align: center;
+        }
+        
         #qr-code {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100px;
-            height: 100px;
-        }
-
-        .leftnumberdiv {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-
-        .rightSerialNumdivForeign {
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .rightDatedivForeign {
-            text-align: right;
-            margin-top: 5px;
-        }
-
-        .rightHijriDatedivForeign {
-            text-align: right;
-            margin-top: 5px;
-        }
-
-        .cleardiv {
-            clear: both;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        .my-marginForegin {
-            margin: 20px 0;
-            padding: 10px;
-            position: relative;
-            line-height: 1.8;
-        }
-
-        .my-marginForegin2 {
-            display: inline-block;
-            margin-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            border-top: 1px solid #000;
-            padding-top: 10px;
-        }
-
-        /* RTL text alignment */
-        div, span, p {
-            text-align: right;
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-                margin: 0;
-            }
-            page[size="A4"][layout="landscape"] {
-                width: 100%;
-                height: auto;
-                box-shadow: none;
-                padding: 0;
-                margin: 0;
-            }
-            .my-marginForegin2 {
-                border-top: 1px solid #000;
-            }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
