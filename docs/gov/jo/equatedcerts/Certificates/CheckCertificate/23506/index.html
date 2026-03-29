@@ -2,20 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8">
-    <title>الشهادات الأجنبية - وزارة التربية والتعليم</title>
-    <meta content="text/html;" charset="utf-8" http-equiv="Content-Type">
-
+    <title>الشهادات الأجنبية</title>
     <style>
-        /* ============================
-           FONT DEFINITIONS (fonts.css)
-           ============================ */
+        /* تعريف الخطوط حسب المسارات في ملفاتك */
         @font-face {
             font-family: 'Droid-Arabic-Kufi';
             src: url('../fonts/Droid-Arabic-Kufi.ttf.eot');
             src: url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype'),
                  url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff'),
                  url('../fonts/Droid-Arabic-Kufi.ttf.svg#Droid-Arabic-Kufi') format('svg');
-            font-weight: normal;
+            font-weight: bold;
             font-style: normal;
         }
 
@@ -29,23 +25,11 @@
             font-style: normal;
         }
 
-        @font-face {
-            font-family: 'Calibri';
-            src: url('../fonts/Calibri.ttf.eot');
-            src: url('../fonts/Calibri.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Calibri.ttf.woff') format('woff'),
-                 url('../fonts/Calibri.ttf.svg#Calibri') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* ============================
-           SYSTEM LAYOUT (Certificates.css)
-           ============================ */
+        /* تنسيقات الصفحة والمواقع */
         body {
             background: rgb(204,204,204);
             margin: 0;
-            padding: 0;
+            font-family: 'Droid-Arabic-Naskh', serif;
         }
 
         page {
@@ -53,75 +37,66 @@
             display: block;
             margin: 0 auto;
             position: relative;
-            box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
             width: 29.7cm;
             height: 21cm;
+            box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
-        /* QR Positioning */
+        /* موضع الـ QR Code الوهمي */
         .imagediv {
             clear: both !important;
             top: 21%;
             left: 100px;
             position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 1px solid #000;
+            background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 15px 15px;
             z-index: 100;
         }
 
-        /* Metadata Positioning */
-        .rightSerialNumdivForeign {
+        /* إحداثيات المعلومات أعلى اليمين */
+        .rightSerialNumdivForeign, .rightDatedivForeign, .rightHijriDatedivForeign {
             clear: both !important;
-            top: 32%;
-            right: 194px;
-            position: relative;
-        }
-
-        .rightDatedivForeign {
-            clear: both !important;
-            top: 32%;
+            position: absolute;
             right: 138px;
-            position: relative;
+            text-align: right;
+            z-index: 10;
         }
 
-        .rightHijriDatedivForeign {
-            clear: both !important;
-            top: 32%;
-            right: 138px;
-            position: relative;
-        }
+        .rightSerialNumdivForeign { top: 32%; }
+        .rightDatedivForeign      { top: 35.5%; }
+        .rightHijriDatedivForeign { top: 39%; }
 
-        /* Body Content Positioning */
+        /* منطقة النص الأساسي */
         .cleardiv {
             clear: both !important;
-            top: 37%;
-            position: relative;
+            top: 48%;
+            position: absolute;
+            width: 100%;
             direction: rtl;
         }
 
         .my-marginForegin {
-            padding-right: 50px;
-            font-size: 20px;
-            line-height: 25px;
-            font-family: 'Droid-Arabic-Naskh';
+            padding-right: 138px;
             text-align: right;
+            line-height: 2.3;
         }
 
+        /* تخصيص خط وزير التربية والتعليم (Kufi) */
         .my-marginForegin2 {
-            right: 300px;
+            font-family: 'Droid-Arabic-Kufi', sans-serif !important;
             font-size: 23px;
-            line-height: 15px;
-            font-family: 'Droid-Arabic-Kufi';
-            top: 91%;
-            position: relative;
             font-weight: bold;
+            position: absolute;
+            bottom: 8%;
+            left: 177px;
+            white-space: nowrap;
         }
-
-        /* Helper Styles */
-        div { text-align: center; }
-        .nowrap { white-space: nowrap; }
 
         @media print {
-            body { margin: 0 auto; zoom: 1.4; background: none; }
+            body { background: none; zoom: 1; }
             page { margin: 0; box-shadow: none; }
             @page { size: landscape; margin: 0; }
         }
@@ -130,78 +105,63 @@
 <body>
 
 <page size="A4" layout="landscape">
-    <div class="imagediv">
-        <canvas id="qr-code" height="100" width="100"></canvas>
-    </div>
+    
+    <div class="imagediv"></div>
 
     <div class="rightSerialNumdivForeign">
-        <div style="float:right; font-size:24px">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+        <div style="float:right;font-size:24px">202206221012041</div>
     </div>
     <div class="rightDatedivForeign">
-        <div style="float:right; font-size:24px">١٤٤٣/١١/٢٣</div>
+        <div style="float:right;font-size:24px">1443/11/23</div>
     </div>
     <div class="rightHijriDatedivForeign">
-        <div style="float:right; font-size:24px">٢٠٢٢/٠٦/٢٢</div>
+        <div style="float:right;font-size:24px">2022/06/22</div>
     </div>
 
     <div class="cleardiv">
         <div class="center cleardiv">
-            <div class="my-marginForegin">
-                <span style="font-size:20px; padding-right: 32px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
-                <span style="font-size:20px;">الثانوية التركية</span>
+            <div style="text-align: right" class="my-marginForegin">
+                <span style="font-size:20px;text-align:right !important;padding-right: 32px;">&#x62A;&#x640;&#x640;&#x634;&#x640;&#x647;&#x640;&#x640;&#x640;&#x62F; &#x648;&#x632;&#x627;&#x631;&#x629; &#x627;&#x644;&#x62A;&#x631;&#x628;&#x640;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x629; &#x648;&#x627;&#x644;&#x62A;&#x639;&#x640;&#x644;&#x64A;&#x640;&#x640;&#x640;&#x645; &#x641;&#x64A; &#x627;&#x644;&#x645;&#x645;&#x644;&#x643;&#x640;&#x640;&#x640;&#x629; &#x627;&#x644;&#x623;&#x631;&#x62F;&#x646;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x640;&#x629; &#x627;&#x644;&#x647;&#x640;&#x640;&#x627;&#x634;&#x640;&#x640;&#x645;&#x640;&#x64A;&#x640;&#x640;&#x640;&#x640;&#x629; &#x623;&#x646; &#x634;&#x640;&#x647;&#x640;&#x640;&#x640;&#x640;&#x640;&#x627;&#x62F;&#x629;</span>
+                <span style="font-size:20px;">&#x627;&#x644;&#x62B;&#x627;&#x646;&#x648;&#x64A;&#x629; &#x627;&#x644;&#x62A;&#x631;&#x643;&#x64A;&#x629;</span>
                 <br><br>
-                <span style="font-size:20px; padding-left:30px;">والصادرة عن</span>
-                <span style="font-size:24px; padding-left:30px;">ثانوية اوميت اسطنبول الدولية الخاصة</span>
-                <span style="font-size:20px; padding-left:30px;"> / </span>
-                <span style="font-size:24px; padding-left:30px;">تركيا</span>
-                <span style="font-size:20px; padding-left:10px;">عــــام</span>
-                <span style="font-size:24px;">٢٠٢١</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:30px;">والصادرة عن</span>
+                <span style="font-size:24px;text-align:right !important;padding-left:30px;"> &#x62B;&#x627;&#x646;&#x648;&#x64A;&#x629; &#x627;&#x648;&#x645;&#x64A;&#x62A; &#x627;&#x633;&#x637;&#x646;&#x628;&#x648;&#x644; &#x627;&#x644;&#x62F;&#x648;&#x644;&#x64A;&#x629; &#x627;&#x644;&#x62E;&#x627;&#x635;&#x629; </span>
+                <span style="font-size:20px;text-align:right !important;padding-left:30px;"> / </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:30px;">&#x62A;&#x631;&#x643;&#x64A;&#x627;</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:10px;">عــــام</span>
+                <span style="font-size:24px;text-align:right !important;">2021</span>
                 <br><br>
-                <span style="font-size:20px; padding-left:5px;">للطالب</span>
-                <span style="font-size:21px; padding-left:10px;"> / </span>
-                <span style="font-size:24px; padding-left:5px;">فيصل عوده حامد الاصفر</span>
-                <span style="font-size:20px; padding-left:30px;"> المولود في </span>
-                <span style="font-size:24px; padding-left:30px;">الكرك</span>
-                <span style="font-size:20px; padding-left:10px;">بتــاريـخ</span>
-                <span style="font-size:24px;">٢٠٠٣/٠٦/١٠</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:5px;">&#x644;&#x644;&#x637;&#x627;&#x644;&#x628;</span>
+                <span style="font-size:21px;text-align:right !important;padding-left:10px;"> / </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:5px;">&#x641;&#x64A;&#x635;&#x644; &#x639;&#x648;&#x62F;&#x647; &#x62D;&#x627;&#x645;&#x62F; &#x627;&#x644;&#x627;&#x635;&#x641;&#x631;</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:30px;"> &#x627;&#x644;&#x645;&#x648;&#x644;&#x648;&#x62F; &#x641;&#x64A; </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:30px;"> &#x627;&#x644;&#x643;&#x631;&#x643;</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:10px;">بتــاريـخ</span>
+                <span style="font-size:24px;text-align:right !important;">2003/06/10</span>
                 <br><br>
-                <span style="font-size:20px; padding-left:1px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة </span>
-                <span style="font-size:24px;">الفرع / </span>
-                <span style="font-size:24px; padding-left:5px;">العلمي</span>
-                <span style="font-size:20px; padding-left:5px;">وبمعدل </span>
-                <span style="font-size:24px; padding-left:5px;">(٨٥٪).</span>
-
-                <div>
-                    <br><br>
-                    <span class="my-marginForegin2">وزير التربية والتعليم</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:1px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:1px;">الفرع / </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:5px;">&#x627;&#x644;&#x639;&#x644;&#x645;&#x64A;</span>
+                <span style="font-size:20px;text-align:right !important;padding-left:5px;">وبمعدل </span>
+                <span style="font-size:24px;text-align:right !important;padding-left:5px;">(85%)</span>
+                
+                <div style="margin-top: 50px;">
+                    <span class="my-marginForegin2"> وزير التربية والتعليم </span>
                 </div>
             </div>
         </div>
     </div>
 </page>
 
-<script src="/equatedcerts/js/qrious.min.js"></script>
 <script type="text/javascript">
     var replaceDigits = function () {
-        // Arabic digit map
         var map = ["\u0660", "\u0661", "\u0662", "\u0663", "\u0664", "\u0665", "\u0666", "\u0667", "\u0668", "\u0669"];
-        
-        // Use a more robust regex for character replacement to avoid breaking HTML tags
-        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function (s) { 
-            return map[parseInt(s)]; 
-        });
-
-        // Initialize QR Code
-        var qr = new QRious({
-            element: document.getElementById('qr-code'),
-            size: 100,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-            foreground: 'black',
-            background: 'white',
-            level: 'H'
-        });
-    };
-
+        // استبدال الأرقام
+        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function ($0) { return map[$0] });
+        // استبدال النقطة والنسبة المئوية
+        document.body.innerHTML = document.body.innerHTML.replace(/\.(?=[^<>]*(<|$))/g, "\u066B");
+        document.body.innerHTML = document.body.innerHTML.replace(/\%(?=[^<>]*(<|$))/g, "\u066A");
+    }
     window.onload = replaceDigits;
 </script>
 
