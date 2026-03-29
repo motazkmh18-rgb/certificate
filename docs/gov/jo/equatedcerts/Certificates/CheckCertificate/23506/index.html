@@ -5,22 +5,28 @@
     <title>الشهادات الأجنبية - وزارة التربية والتعليم</title>
     <style>
         /* ============================
-           FONT DEFINITIONS (As used in MOE System)
+           FONT DEFINITIONS (Fixed Paths)
            ============================ */
         @font-face {
             font-family: 'Droid-Arabic-Kufi';
-            src: url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff');
+            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot');
+            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype'),
+                 url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff');
             font-weight: bold;
+            font-style: normal;
         }
 
         @font-face {
             font-family: 'Droid-Arabic-Naskh';
-            src: url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
+            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot');
+            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot?#iefix') format('embedded-opentype'),
+                 url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
             font-weight: normal;
+            font-style: normal;
         }
 
         /* ============================
-           MOE SYSTEM LAYOUT (Certificates.css)
+           CERTIFICATE STYLE & POSITIONS
            ============================ */
         body {
             background: rgb(204,204,204);
@@ -40,71 +46,67 @@
             overflow: hidden;
         }
 
-        /* QR Position (imagediv) */
+        /* Dummy QR Code Placeholder */
         .imagediv {
             position: absolute;
-            top: 21%; /* Exact MOE Value */
-            left: 100px; /* Exact MOE Value */
+            top: 21%;
+            left: 100px;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #000;
+            background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 100;
         }
 
-        #qr-code {
-            width: 120px;
-            height: 120px;
-        }
-
-        /* Metadata (Right Side ID and Dates) */
-        .rightSerialNumdivForeign {
+        /* Top Right Metadata (ID, Hijri, Gregorian) */
+        .metadata-section {
             position: absolute;
-            top: 32%; /* Exact MOE Value */
-            right: 138px; /* Exact MOE Value */
-            text-align: right;
-            font-size: 24px;
-        }
-
-        .rightDatedivForeign {
-            position: absolute;
-            top: 35.5%; /* Calculated offset */
+            top: 32%;
             right: 138px;
             text-align: right;
             font-size: 24px;
+            line-height: 1.4;
+            color: #000;
         }
 
-        .rightHijriDatedivForeign {
-            position: absolute;
-            top: 39%; /* Calculated offset */
-            right: 138px;
-            text-align: right;
-            font-size: 24px;
-        }
-
-        /* Certificate Body (cleardiv) */
+        /* Main Certificate Content */
         .cleardiv {
             position: absolute;
-            top: 48%; /* Starts exactly below the header data */
+            top: 48%;
             width: 100%;
             direction: rtl;
         }
 
         .my-marginForegin {
-            padding-right: 138px; /* Must align with metadata */
+            padding-right: 138px; /* Aligned with metadata */
             text-align: right;
-            line-height: 2.2; /* Spacing for the elegant Naskh look */
+            line-height: 2.3; /* Spacing for the elegant Naskh look */
+            color: #000;
         }
 
-        .my-marginForegin span {
-            display: inline-block;
+        /* Style for the Dynamic Data (Highlighted Parts) */
+        .data-highlight {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 4px;
         }
 
-        /* Bold Signature (Bottom Left) */
-        .signature-container {
+        .label-text {
+            font-size: 20px;
+        }
+
+        /* Official Signature (Bottom Left) */
+        .my-marginForegin2 {
             position: absolute;
             bottom: 8%;
             left: 177px;
             font-family: 'Droid-Arabic-Kufi', sans-serif;
             font-size: 23px;
             font-weight: bold;
-            text-align: center;
+            white-space: nowrap;
         }
 
         @media print {
@@ -117,57 +119,46 @@
 <body>
 
 <page size="A4" layout="landscape">
+    
     <div class="imagediv">
-        <canvas id="qr-code"></canvas>
+        <span style="background:white; padding: 2px; font-size: 10px; font-family: sans-serif;">QR CODE</span>
     </div>
 
-    <div class="rightSerialNumdivForeign">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-    <div class="rightDatedivForeign">١٤٤٣/١١/٢٣</div>
-    <div class="rightHijriDatedivForeign">٢٠٢٢/٠٦/٢٢</div>
+    <div class="metadata-section">
+        <div class="rightSerialNumdivForeign">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+        <div class="rightDatedivForeign">١٤٤٣/١١/٢٣</div>
+        <div class="rightHijriDatedivForeign">٢٠٢٢/٠٦/٢٢</div>
+    </div>
 
     <div class="cleardiv">
         <div class="my-marginForegin">
-            <span style="font-size:21px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
-            <span style="font-size:24px; font-weight: bold;">الثانوية التركية</span>
+            <span class="label-text">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
+            <span class="data-highlight">الثانوية التركية</span>
             <br>
-            <span style="font-size:21px;">والصادرة عن</span> 
-            <span style="font-size:24px; font-weight: bold;">ثانوية اوميت اسطنبول الدولية الخاصة / تركيا</span> 
-            <span style="font-size:21px;">عــــام</span> 
-            <span style="font-size:24px; font-weight: bold;">٢٠٢١</span>
+            <span class="label-text">والصادرة عن</span> 
+            <span class="data-highlight">ثانوية اوميت اسطنبول الدولية الخاصة / تركيا</span> 
+            <span class="label-text">عــــام</span> 
+            <span class="data-highlight">٢٠٢١</span>
             <br>
-            <span style="font-size:21px;">للطالب /</span> 
-            <span style="font-size:24px; font-weight: bold;">فيصل عوده حامد الاصفر</span> 
-            <span style="font-size:21px;">المولود في</span> 
-            <span style="font-size:24px; font-weight: bold;">الكرك</span> 
-            <span style="font-size:21px;">بتــاريـخ</span> 
-            <span style="font-size:24px; font-weight: bold;">٢٠٠٣/٠٦/١٠</span>
+            <span class="label-text">للطلـب /</span> 
+            <span class="data-highlight">فيصل عوده حامد الاصفر</span> 
+            <span class="label-text">المولود في</span> 
+            <span class="data-highlight">الكرك</span> 
+            <span class="label-text">بتــاريـخ</span> 
+            <span class="data-highlight">٢٠٠٣/٠٦/١٠</span>
             <br>
-            <span style="font-size:21px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع /</span> 
-            <span style="font-size:24px; font-weight: bold;">العلمي</span> 
-            <span style="font-size:21px;">وبمعدل</span> 
-            <span style="font-size:24px; font-weight: bold;">(٨٥٪).</span>
+            <span class="label-text">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع /</span> 
+            <span class="data-highlight">العلمي</span> 
+            <span class="label-text">وبمعدل</span> 
+            <span class="data-highlight">(٨٥٪).</span>
         </div>
     </div>
 
-    <div class="signature-container">
+    <div class="my-marginForegin2">
         وزير التربية والتعليم
     </div>
-</page>
 
-<script src="/equatedcerts/js/qrious.min.js"></script>
-<script>
-    window.onload = function() {
-        // Generate QR code with specific MOE size
-        new QRious({
-            element: document.getElementById('qr-code'),
-            size: 120,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-            foreground: 'black',
-            background: 'white',
-            level: 'H'
-        });
-    };
-</script>
+</page>
 
 </body>
 </html>
