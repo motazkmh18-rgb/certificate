@@ -1,104 +1,258 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>شهادة معادلة</title>
+    <meta charset="utf-8">
+    <title>الشهادات الأجنبية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Embedded fonts.css equivalent - Arabic friendly fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
 
-<style>
-body {
-    font-family: "Tahoma", Arial, sans-serif;
-    background: #f5f7fa;
-    margin: 0;
-    padding: 0;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-    width: 700px;
-    margin: 50px auto;
-    background: #fff;
-    border: 1px solid #ccc;
-    padding: 30px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+        body {
+            font-family: 'Tajawal', 'Segoe UI', 'Traditional Arabic', 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+        page[size="A4"][layout="landscape"] {
+            width: 297mm;
+            min-height: 210mm;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            position: relative;
+            padding: 15mm;
+            page-break-after: avoid;
+            break-inside: avoid;
+        }
 
-.header h2 {
-    margin: 0;
-    color: #1f4e79;
-}
+        /* Embedded Certificates.css styles */
+        .imagediv {
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-.table {
-    width: 100%;
-    border-collapse: collapse;
-}
+        .topleftnumberdiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-.table td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 15px;
-}
+        #qr-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+        }
 
-.label {
-    background: #f0f0f0;
-    font-weight: bold;
-    width: 35%;
-}
+        .leftnumberdiv {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
 
-.value {
-    width: 65%;
-}
+        .rightSerialNumdivForeign {
+            text-align: right;
+            margin-top: 20px;
+        }
 
-.footer {
-    margin-top: 20px;
-    text-align: center;
-    color: #555;
-    font-size: 14px;
-}
-</style>
+        .rightDatedivForeign {
+            text-align: right;
+            margin-top: 5px;
+        }
 
+        .rightHijriDatedivForeign {
+            text-align: right;
+            margin-top: 5px;
+        }
+
+        .cleardiv {
+            clear: both;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .my-marginForegin {
+            margin: 20px 0;
+            padding: 10px;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .my-marginForegin2 {
+            display: inline-block;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+        }
+
+        /* RTL text alignment */
+        div, span, p {
+            text-align: right;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            page[size="A4"][layout="landscape"] {
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+            }
+            .my-marginForegin2 {
+                border-top: 1px solid #000;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
-
 <body>
+    <page size="A4" layout="landscape">
+        <div class="imagediv">
+            <div class="topleftnumberdiv"></div>
+            <canvas id="qr-code"></canvas>
+            <div class="leftnumberdiv">
+                <div style="float:left; font-weight:bold; font-size:19px"></div>
+            </div>
+        </div>
 
-<div class="container">
+        <div class="rightSerialNumdivForeign">
+            <div style="float:right; font-size:24px">202206221012041</div>
+        </div>
+        <div class="rightDatedivForeign">
+            <div style="float:right; font-size:24px">1443/11/23</div>
+        </div>
+        <div class="rightHijriDatedivForeign">
+            <div style="float:right; font-size:24px">2022/06/22</div>
+        </div>
+        <div class="cleardiv">
+            <div class="center cleardiv">
+                <div style="text-align: right" class="my-marginForegin">
+                    <span style="font-size:20px; text-align:right !important; padding-right:32px;">تشهد وزارة التربية والتعليم والتعليم العالي في المملكة الأردنية الهاشمية الهاشمية أن شهادة</span>
+                    <span style="font-size:20px;">الثانوية التركية</span>
+                    <br><br>
+                    <span style="font-size:20px; text-align:right !important; padding-left:30px;">والصادرة عن</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:30px;">ثانوية وميت اسطنبول الدولية الخاصة</span>
+                    <span style="font-size:20px; text-align:right !important; padding-left:30px;">/</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:30px;">تركيا</span>
+                    <span style="font-size:20px; text-align:right !important; padding-left:10px;">عــــام</span>
+                    <span style="font-size:24px; text-align:right !important;">2021</span>
+                    <br><br>
+                    <span style="font-size:20px; text-align:right !important; padding-left:5px;">للطالب</span>
+                    <span style="font-size:21px; text-align:right !important; padding-left:10px;">/</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:5px;">فيصل عوده حامد الاصفر</span>
+                    <span style="font-size:20px; text-align:right !important; padding-left:30px;">المولود في</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:30px;">الكرك</span>
+                    <span style="font-size:20px; text-align:right !important; padding-left:10px;">بتــاريـخ</span>
+                    <span style="font-size:24px; text-align:right !important;">2003/06/10</span>
+                    <br><br>
+                    <span style="font-size:20px; text-align:right !important; padding-left:1px;">تعادل شهادة الدراسة الثانوية العامة الأردنية</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:1px;">الفرع /</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:5px;">العلمي</span>
+                    <span style="font-size:20px; text-align:right !important; padding-left:5px;">وبمعدل</span>
+                    <span style="font-size:24px; text-align:right !important; padding-left:5px;">(85%)</span>
+                    <span id="qodoratSatatment1" style="font-size:20px; text-align:right !important; padding-left:5px; position:absolute">وقد عودلت شهادته بعد اجتيازه</span>
+                    <span id="qodoratSatatment11" style="font-size:20px; text-align:right !important; padding-left:5px; position:absolute">وقد عودلت شهادته بعد استكمال</span>
+                    <br><br>
+                    <span id="qodoratSatatment2" style="font-size:20px; text-align:right !important; padding-left:1px; position:absolute">امتحاني القدرات والتحصيل بتاريخ:</span>
+                    <span id="qodoratSatatment22" style="font-size:20px; text-align:right !important; padding-left:1px">متطلبات المعادلة بتاريخ:</span>
+                    <span id="qodoratSatatment3" style="font-size:24px; text-align:right !important; padding-right:88px; position:absolute">().</span>
+                    <span id="qodoratSatatment33" style="font-size:24px; text-align:right !important; padding-left:1px">().</span>
 
-    <div class="header">
-        <h2>وزارة التربية والتعليم</h2>
-        <p>شهادة معادلة</p>
-    </div>
+                    <div>
+                        <span class="my-marginForegin2">وزير التربية والتعليم</span><br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </page>
 
-    <table class="table">
-        <tr>
-            <td class="label">اسم الطالب</td>
-            <td class="value">محمد أحمد</td>
-        </tr>
-        <tr>
-            <td class="label">رقم الجلوس</td>
-            <td class="value">12041</td>
-        </tr>
-        <tr>
-            <td class="label">التخصص</td>
-            <td class="value">علمي</td>
-        </tr>
-        <tr>
-            <td class="label">المعدل</td>
-            <td class="value">85%</td>
-        </tr>
-        <tr>
-            <td class="label">سنة التخرج</td>
-            <td class="value">2024</td>
-        </tr>
-    </table>
-
-    <div class="footer">
-        هذه الصفحة لأغراض العرض فقط
-    </div>
-
-</div>
-
+    <script>
+        (function() {
+            // Replace digits with Arabic numerals
+            var replaceDigits = function() {
+                var map = ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"];
+                document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function($0) { 
+                    return map[$0]; 
+                });
+                document.body.innerHTML = document.body.innerHTML.replace(/\.(?=[^<>]*(<|$))/g, "٫");
+                document.body.innerHTML = document.body.innerHTML.replace(/\%(?=[^<>]*(<|$))/g, "٪");
+                document.body.innerHTML = document.body.innerHTML.replace("G٫C٫E, I٫G٫C٫S٫E", "G.C.E, I.G.C.S.E");
+                document.body.innerHTML = document.body.innerHTML.replace("H٫S٫D", "H.S.D");
+                document.body.innerHTML = document.body.innerHTML.replace("U٫S٫A", "U.S.A");
+                
+                var s1 = document.getElementById('qodoratSatatment1');
+                var s2 = document.getElementById('qodoratSatatment2');
+                var s3 = document.getElementById('qodoratSatatment3');
+                var s11 = document.getElementById('qodoratSatatment11');
+                var s22 = document.getElementById('qodoratSatatment22');
+                var s33 = document.getElementById('qodoratSatatment33');
+                
+                var data = null;
+                if (data == null) {
+                    if (s1) s1.style.visibility = 'hidden';
+                    if (s2) s2.style.visibility = 'hidden';
+                    if (s3) s3.style.visibility = 'hidden';
+                    if (s11) s11.style.visibility = 'hidden';
+                    if (s22) s22.style.visibility = 'hidden';
+                    if (s33) s33.style.visibility = 'hidden';
+                    document.body.innerHTML = document.body.innerHTML.replace(/\)(?=[^<>]*(<|$))/, ").");
+                } else {
+                    var data2 = 17;
+                    if (data2 == 1 || data2 == 10 || data2 == 14 || data2 == 15 || data2 == 16) {
+                        if (s1) s1.style.visibility = 'hidden';
+                        if (s2) s2.style.visibility = 'hidden';
+                        if (s3) s3.style.visibility = 'hidden';
+                        if (s11) s11.style.visibility = 'visible';
+                        if (s22) s22.style.visibility = 'visible';
+                        if (s33) s33.style.visibility = 'visible';
+                    } else {
+                        if (s1) s1.style.visibility = 'visible';
+                        if (s2) s2.style.visibility = 'visible';
+                        if (s3) s3.style.visibility = 'visible';
+                        if (s11) s11.style.visibility = 'hidden';
+                        if (s22) s22.style.visibility = 'hidden';
+                        if (s33) s33.style.visibility = 'hidden';
+                    }
+                    document.body.innerHTML = document.body.innerHTML.replace(" ) ٫", ").");
+                    document.body.innerHTML = document.body.innerHTML.replace(")٫", ").");
+                }
+                
+                // Generate QR code
+                var qrCanvas = document.getElementById('qr-code');
+                if (qrCanvas && typeof QRious !== 'undefined') {
+                    var qr = new QRious({
+                        element: qrCanvas,
+                        foreground: 'black',
+                        size: 100,
+                        value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
+                    });
+                }
+            };
+            
+            replaceDigits();
+        })();
+    </script>
 </body>
 </html>
