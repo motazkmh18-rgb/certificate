@@ -128,22 +128,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 
-<script>
-    window.onload = function() {
-        try {
-            var qr = new QRious({
-                element: document.getElementById('qr-code'),
-                size: 120,
-                value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-                foreground: 'black',
-                background: 'white'
-            });
-            console.log("QR Code generated successfully.");
-        } catch (e) {
-            console.error("QR Error: ", e);
-        }
-    };
-</script>
+<img id="qr-code" src="frame.png" width="120" height="120" alt="QR Code">
 
 </body>
 </html>
