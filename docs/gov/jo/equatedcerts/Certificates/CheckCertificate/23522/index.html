@@ -5,6 +5,9 @@
     <title>الشهادات الأجنبية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Prevent iOS from detecting phone numbers -->
+    <meta name="format-detection" content="telephone=no">
+
     <style>
         body {
             background: rgb(204,204,204);
@@ -44,6 +47,18 @@
             text-align: right;
             font-size: 24px;
             line-height: 1.4;
+
+            /* Fix for mobile number styling */
+            color: black !important;
+            text-decoration: none !important;
+            -webkit-text-fill-color: black; /* iOS Safari */
+            -webkit-touch-callout: none;    /* Disable callout menu */
+        }
+
+        .metadata-container div {
+            color: black !important;
+            text-decoration: none !important;
+            -webkit-text-fill-color: black;
         }
 
         .serial-num { margin-right: 56px; }
@@ -89,25 +104,20 @@
     </div>
 
     <div class="metadata-container">
-        <div class="serial-num">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-        <div class="date-hijri">١٤٤٣/١١/٢٣</div>
-        <div class="date-gregorian">٢٠٢٢/٠٦/٢٢</div>
+        <div class="serial-num">٢٠٢٦٠٦٢٢١٠٢٣٥٠٦</div>
+        <div class="date-hijri">١٤٤٧/١٠/١١</div>
+        <div class="date-gregorian">٢٠٢٦/٠٣/٣٠</div>
     </div>
 
     <div class="content-area">
         <div class="main-text">
-            تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنيــــة الهــاشــمـيــــة أن شـهـــــادة 
-            الثانوية التركية
+            تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية السعودية
             <br>
-            والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا
-            عــــام ٢٠٢١
+            والصادرة عن ثانوية مدارس العصر النموذجية / السعودية عام ٢٠٢٤
             <br>
-            للطالب / فيصل عوده حامد الاصفر
-            المولود في الكرك
-            بتــاريـخ ٢٠٠٣/٠٦/١٠
+            للطالبة / ميار هاني سليمان المولودة في بنغازي بتاريخ ٢٠٠٤/١٢/١٣
             <br>
-            تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع / العلمي
-            وبمعدل (٨٥٪).
+           تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / العلمي وبمعدل (٨٥٪).
         </div>
     </div>
 
