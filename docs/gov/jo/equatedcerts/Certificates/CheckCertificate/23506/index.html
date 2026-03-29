@@ -1,170 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Certificate Example</title>
 
-<!-- saved from url=(0073)https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041 -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="chrome-extension://hmdmhilocobgohohpdpolmibjklfgkbi/pageScript.js"></script></head><body><page size="A4" layout="landscape">
+<style>
+  /* Font Faces */
+  @font-face {
+      font-family: 'Droid-Arabic-Kufi';
+      src: url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff'),
+           url('../fonts/Droid-Arabic-Kufi.ttf.svg#Droid-Arabic-Kufi') format('svg'),
+           url('../fonts/Droid-Arabic-Kufi.ttf.eot'),
+           url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype');
+      font-weight: normal;
+      font-style: normal;
+  }
 
+  @font-face {
+      font-family: 'Droid-Arabic-Naskh';
+      src: url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff'),
+           url('../fonts/Droid-Arabic-Naskh.ttf.svg#Droid-Arabic-Naskh') format('svg'),
+           url('../fonts/Droid-Arabic-Naskh.ttf.eot'),
+           url('../fonts/Droid-Arabic-Naskh.ttf.eot?#iefix') format('embedded-opentype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+      font-family: 'Calibri';
+      src: url('../fonts/Calibri.ttf.woff') format('woff'),
+           url('../fonts/Calibri.ttf.svg#Calibri') format('svg'),
+           url('../fonts/Calibri.ttf.eot'),
+           url('../fonts/Calibri.ttf.eot?#iefix') format('embedded-opentype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  body {
+    background: #ccc;
+    margin: 0;
+    padding: 0;
+    font-family: 'Droid-Arabic-Naskh', serif;
+    direction: rtl;
+  }
+
+  .page {
+    background: white;
+    width: 21cm;
+    min-height: 29.7cm;
+    margin: 30px auto;
+    padding: 50px 80px 80px 80px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  /* QR container top-left */
+  .qr-container {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 32mm;
+    height: 32mm;
+    text-align: center;
+  }
+
+  /* Style for QR canvas or img */
+  .qr-container canvas,
+  .qr-container img {
+    width: 32mm !important;
+    height: 32mm !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Top right dates and serial numbers */
+  .top-right-numbers {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: 'Droid-Arabic-Naskh', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* Main certificate text block */
+  .certificate-text {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: 150px; /* leave space for QR */
+    font-family: 'Droid-Arabic-Naskh', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: right;
+    direction: rtl;
+    margin-top: 120px;
+  }
+
+  /* Signature line */
+  .signature-line {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: 150px;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 40px;
+    text-align: right;
+    direction: rtl;
+    font-family: 'Droid-Arabic-Naskh', serif;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="qr-container">
+      <!-- Replace this with your QR code canvas or image -->
+      <canvas id="qr-code" width="128" height="128"></canvas>
+    </div>
+
+    <div class="top-right-numbers">
+      <div>٢٠٢٢/٠٦/٢٢١٠١٢٠٤١</div>
+      <div>١٤٤٣/١١/٢٣</div>
+      <div>٢٠٢٢/٠٦/٢٢</div>
+    </div>
+
+    <div class="certificate-text">
+      تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية التركية  
+      والصادرة عن ثانوية أوميت اسطنبول الدولية الخاصة / تركيا عام ٢٠٢١  
+      للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتاريخ ٢٠٠٣/٠٦/١٠  
+      تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / العلمي وبمعدل (٨٥٪).
+    </div>
+
+    <div class="signature-line">
+      وزير التربية والتعليم
+    </div>
+  </div>
+
+  <script>
+    // Example QR code generation using QRious library (optional)
+    // If you want, you can include a QR code library or replace with an <img> tag with QR image
     
-    
-        
-        <title>الشهادات الأجنبية</title>
-        
-
-        <link href="./الشهادات الأجنبية_files/fonts.css" rel="stylesheet" type="text/css">
-        <link href="./الشهادات الأجنبية_files/Certificates.css" rel="stylesheet" type="text/css">
-    
-
-
-    
-        
-
-
-        <div class="imagediv">
-            <div class="topleftnumberdiv">
-
-            </div>
-
-            <canvas id="qr-code" height="100" width="100"></canvas>
-
-            <div class="leftnumberdiv">
-                <div style="float:left;
-            font-weight:bold;
-            font-size:19px">
-                    
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="rightSerialNumdivForeign">
-            <div style="float:right;font-size:24px">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-        </div>
-        <div class="rightDatedivForeign">
-            <div style="float:right;font-size:24px">
-
-                ١٤٤٣/١١/٢٣
-            </div>
-
-
-        </div>
-        <div class="rightHijriDatedivForeign">
-            <div style="float:right;font-size:24px">٢٠٢٢/٠٦/٢٢ </div>
-        </div>
-        <div class="cleardiv">
-            <div class="center cleardiv">
-                <div style="text-align: right" class="my-marginForegin">
-                    <span style="font-size:20px;text-align:right !important;padding-right: 32px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة   </span>
-
-                    <span style="font-size:20px;">الثانوية التركية </span>
-                    <br><br>
-                    <span style="font-size:20px;text-align:right !important;padding-left:30px;">والصادرة عن</span><span style="font-size:24px;text-align:right !important;padding-left:30px;"> ثانوية اوميت اسطنبول الدولية الخاصة  </span>
-                    <span style="font-size:20px;text-align:right !important;padding-left:30px;"> / </span><span style="font-size:24px;text-align:right !important;padding-left:30px;">تركيا</span>
-                    <span style="font-size:20px;text-align:right !important;padding-left:10px;">عــــام</span>
-                    <span style="font-size:24px;text-align:right !important;">٢٠٢١</span>
-                    <br><br>
-                    <span style="font-size:20px;text-align:right !important;padding-left:5px;">للطالب</span><span style="font-size:21px;text-align:right !important;padding-left:10px;"> / </span>
-                    <span style="font-size:24px;text-align:right !important;padding-left:5px;">فيصل عوده حامد الاصفر</span>
-
-                    <span style="font-size:20px;text-align:right !important;padding-left:30px;"> المولود في </span><span style="font-size:24px;text-align:right !important;padding-left:30px;"> الكرك</span>
-                    <span style="font-size:20px;text-align:right !important;padding-left:10px;">بتــاريـخ</span>
-                    <span style="font-size:24px;text-align:right !important;">٢٠٠٣/٠٦/١٠</span>
-                    <br><br>
-                    <span style="font-size:20px;text-align:right !important;padding-left:1px;">تعـادل  شهادة  الدراسـة  الثانويـة  العامـة  الأردنيـة    </span><span style="font-size:24px;text-align:right !important;padding-left:1px;">الفرع / </span>
-                    <span style="font-size:24px;text-align:right !important;padding-left:5px;">العلمي</span>
-                    <span style="font-size:20px;text-align:right !important;padding-left:5px;">وبمعدل </span><span style="font-size:24px;text-align:right !important;padding-left:5px;">(٨٥٪).</span>
-                    <span id="qodoratSatatment1" ,="" style="font-size: 20px; padding-left: 5px; position: absolute; text-align: right !important; visibility: hidden;">؛وقد عودلت شهادته بعـد اجتيازه </span>
-                    <span id="qodoratSatatment11" ,="" style="font-size: 20px; padding-left: 5px; position: absolute; text-align: right !important; visibility: hidden;"> وقد عودلت شهادته بعد استكمال   </span>
-                    <br><br>
-                    <span id="qodoratSatatment2" ,="" style="font-size: 20px; padding-left: 1px; position: absolute; text-align: right !important; visibility: hidden;">امتحاني القدرات والتحصيل بتاريخ:  </span>
-                    <span id="qodoratSatatment22" ,="" style="font-size: 20px; padding-left: 1px; text-align: right !important; visibility: hidden;">متطلبات المعادلة بتاريخ:  </span>
-                    <span id="qodoratSatatment3" ,="" style="font-size: 24px; padding-right: 88px; position: absolute; text-align: right !important; visibility: hidden;">()٫</span>
-                    <span id="qodoratSatatment33" ,="" style="font-size: 24px; padding-left: 1px; text-align: right !important; visibility: hidden;">()٫</span>
-
-                    <div>
-                        <span class="my-marginForegin2"> وزير التربية والتعليم </span> <br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script src="./الشهادات الأجنبية_files/qrious.min.js.download"></script>
-        <script type="text/javascript">
-               var replaceDigits = function () {
-                   var map = ["&#x&#x666;&#x666;&#x660;;", "&#x&#x666;&#x666;&#x661;;", "&#x&#x666;&#x666;&#x662;;", "&#x&#x666;&#x666;&#x663;;", "&#x&#x666;&#x666;&#x664;;", "&#x&#x666;&#x666;&#x665;;", "&#x&#x666;&#x666;&#x666;;", "&#x&#x666;&#x666;&#x667;;", "&#x&#x666;&#x666;&#x668;;", "&#x&#x666;&#x666;&#x669;;"]
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(/\d(?=[^<>]*(<|$))/g, function ($&#x660;) { return map[$&#x660;] });
-                   // replace english floating point with arabic one:
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(/\&#x066B;(?=[^<>]*(<|$))/g, "&#x&#x660;&#x666;&#x666;B;");
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(/\&#x066A;(?=[^<>]*(<|$))/g, "&#x&#x660;&#x666;&#x666;A;");
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace("G.C.E, I.G.C.S.E", "G&#x066B;C&#x066B;E, I&#x066B;G&#x066B;C&#x066B;S&#x066B;E");
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace("H.S.D", "H&#x066B;S&#x066B;D");
-                   document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace("U.S.A", "U&#x066B;S&#x066B;A");
-                   var s&#x661; = document&#x066B;getElementById('qodoratSatatment&#x661;');
-                   var s&#x662; = document&#x066B;getElementById('qodoratSatatment&#x662;');
-                   var s&#x663; = document&#x066B;getElementById('qodoratSatatment&#x663;');
-                   var s&#x661;&#x661; = document&#x066B;getElementById('qodoratSatatment&#x661;&#x661;');
-                   var s&#x662;&#x662; = document&#x066B;getElementById('qodoratSatatment&#x662;&#x662;');
-                   var s&#x663;&#x663; = document&#x066B;getElementById('qodoratSatatment&#x663;&#x663;');
-                   var data = null;
-                                   if (data == null) {
-                       s&#x661;&#x066B;style&#x066B;visibility = 'hidden';
-                       s&#x662;&#x066B;style&#x066B;visibility = 'hidden';
-                       s&#x663;&#x066B;style&#x066B;visibility = 'hidden';
-                       s&#x661;&#x661;&#x066B;style&#x066B;visibility = 'hidden';
-                       s&#x662;&#x662;&#x066B;style&#x066B;visibility = 'hidden';
-                       s&#x663;&#x663;&#x066B;style&#x066B;visibility = 'hidden';
-
-                       document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(/\)(?=[^<>]*(<|$))/, ")&#x066B;");
-                   } else {
-
-                   var data&#x662; = &#x661;&#x667;;
-                                       if (data&#x662; == &#x661; || data&#x662; == &#x661;&#x660; || data&#x662; == &#x661;&#x664; || data&#x662; == &#x661;&#x665; || data&#x662; == &#x661;&#x666;) {
-                           s&#x661;&#x066B;style&#x066B;visibility = 'hidden';
-                           s&#x662;&#x066B;style&#x066B;visibility = 'hidden';
-                           s&#x663;&#x066B;style&#x066B;visibility = 'hidden';
-                           s&#x661;&#x661;&#x066B;style&#x066B;visibility = 'visible';
-                           s&#x662;&#x662;&#x066B;style&#x066B;visibility = 'visible';
-                           s&#x663;&#x663;&#x066B;style&#x066B;visibility = 'visible';
-                           document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(" ) ٫", ")&#x066B;");
-                           document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(")٫", ")&#x066B;");
-
-
-                       } else {
-
-                           s&#x661;&#x066B;style&#x066B;visibility = 'visible';
-                           s&#x662;&#x066B;style&#x066B;visibility = 'visible';
-                           s&#x663;&#x066B;style&#x066B;visibility = 'visible';
-                           s&#x661;&#x661;&#x066B;style&#x066B;visibility = 'hidden';
-                           s&#x662;&#x662;&#x066B;style&#x066B;visibility = 'hidden';
-                           s&#x663;&#x663;&#x066B;style&#x066B;visibility = 'hidden';
-                           document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(" ) ٫", ")&#x066B;");
-                           document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(")٫", ")&#x066B;");
-
-                       }
-
-
-                       document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(" ) ٫", ")&#x066B;");
-                       document&#x066B;body&#x066B;innerHTML = document&#x066B;body&#x066B;innerHTML&#x066B;replace(")٫", ")&#x066B;");
-
-                   }
-                               var qr;
-               (function () {
-                   qr = new QRious({
-                       element: document&#x066B;getElementById('qr-code'),
-
-
-                   });
-                var qrtext = "https://certs&#x066B;moe&#x066B;gov&#x066B;jo/equatedcerts/Certificates/CheckCertificate/" + &#x661;&#x662;&#x660;&#x664;&#x661;;
-                   qr&#x066B;set({
-                       foreground: 'black',
-                       size: &#x661;&#x660;&#x660;,
-                       value: qrtext
-                   });
-               })();
-               }
-               window&#x066B;onload = replaceDigits;
-            //   print(window&#x066B;location&#x066B;href);
-         
-
-
-        </script>
-    
-
-</page></body></html>
+    // This snippet just draws a placeholder square to represent the QR
+    const canvas = document.getElementById('qr-code');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  </script>
+</body>
+</html>
