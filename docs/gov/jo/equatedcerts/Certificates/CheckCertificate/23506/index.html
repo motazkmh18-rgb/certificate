@@ -2,37 +2,30 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="utf-8">
-    <title>الشهادات الأجنبية</title>
+    <title>الشهادات الأجنبية - وزارة التربية والتعليم</title>
     <style>
         /* ============================
-           FONT DEFINITIONS
+           FONT DEFINITIONS (As used in MOE System)
            ============================ */
         @font-face {
             font-family: 'Droid-Arabic-Kufi';
-            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot');
-            src: url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff'),
-                 url('../fonts/Droid-Arabic-Kufi.ttf.svg#Droid-Arabic-Kufi') format('svg');
-            font-weight: normal;
-            font-style: normal;
+            src: url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff');
+            font-weight: bold;
         }
 
         @font-face {
             font-family: 'Droid-Arabic-Naskh';
-            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot');
-            src: url('../fonts/Droid-Arabic-Naskh.ttf.eot?#iefix') format('embedded-opentype'),
-                 url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff'),
-                 url('../fonts/Droid-Arabic-Naskh.ttf.svg#Droid-Arabic-Naskh') format('svg');
+            src: url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
             font-weight: normal;
-            font-style: normal;
         }
 
         /* ============================
-           LAYOUT STYLES
+           MOE SYSTEM LAYOUT (Certificates.css)
            ============================ */
         body {
             background: rgb(204,204,204);
             margin: 0;
+            padding: 0;
             font-family: 'Droid-Arabic-Naskh', serif;
         }
 
@@ -43,54 +36,73 @@
             position: relative;
             width: 29.7cm;
             height: 21cm;
-            box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
-        /* QR Position */
+        /* QR Position (imagediv) */
         .imagediv {
-            clear: both !important;
-            top: 15%;
-            left: 85px;
             position: absolute;
+            top: 21%; /* Exact MOE Value */
+            left: 100px; /* Exact MOE Value */
+            z-index: 100;
         }
 
-        /* Metadata - Top Right */
-        .rightSerialNumdivForeign, .rightDatedivForeign, .rightHijriDatedivForeign {
-            clear: both !important;
-            position: relative;
-            right: 145px;
+        #qr-code {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* Metadata (Right Side ID and Dates) */
+        .rightSerialNumdivForeign {
+            position: absolute;
+            top: 32%; /* Exact MOE Value */
+            right: 138px; /* Exact MOE Value */
             text-align: right;
-            font-family: 'Droid-Arabic-Naskh';
-            z-index: 10;
+            font-size: 24px;
         }
 
-        .rightSerialNumdivForeign { top: 21%; }
-        .rightDatedivForeign      { top: 22%; }
-        .rightHijriDatedivForeign { top: 23%; }
+        .rightDatedivForeign {
+            position: absolute;
+            top: 35.5%; /* Calculated offset */
+            right: 138px;
+            text-align: right;
+            font-size: 24px;
+        }
 
-        /* Main Content Block */
+        .rightHijriDatedivForeign {
+            position: absolute;
+            top: 39%; /* Calculated offset */
+            right: 138px;
+            text-align: right;
+            font-size: 24px;
+        }
+
+        /* Certificate Body (cleardiv) */
         .cleardiv {
-            clear: both !important;
-            top: 31%;
-            position: relative;
+            position: absolute;
+            top: 48%; /* Starts exactly below the header data */
+            width: 100%;
             direction: rtl;
         }
 
         .my-marginForegin {
-            padding-right: 145px;
-            font-family: 'Droid-Arabic-Naskh';
+            padding-right: 138px; /* Must align with metadata */
             text-align: right;
-            line-height: 2.2; /* Spacing between lines as per image */
+            line-height: 2.2; /* Spacing for the elegant Naskh look */
         }
 
-        /* Signature - Droid Kufi Bold */
-        .my-marginForegin2 {
+        .my-marginForegin span {
             display: inline-block;
-            margin-top: 40px;
-            margin-left: 130px;
-            font-size: 30px;
-            font-family: 'Droid-Arabic-Kufi';
+        }
+
+        /* Bold Signature (Bottom Left) */
+        .signature-container {
+            position: absolute;
+            bottom: 8%;
+            left: 177px;
+            font-family: 'Droid-Arabic-Kufi', sans-serif;
+            font-size: 23px;
             font-weight: bold;
             text-align: center;
         }
@@ -106,60 +118,55 @@
 
 <page size="A4" layout="landscape">
     <div class="imagediv">
-        <canvas id="qr-code" width="135" height="135"></canvas>
+        <canvas id="qr-code"></canvas>
     </div>
 
-    <div class="rightSerialNumdivForeign">
-        <div style="font-size:24px">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-    </div>
-    <div class="rightDatedivForeign">
-        <div style="font-size:24px">١٤٤٣/١١/٢٣</div>
-    </div>
-    <div class="rightHijriDatedivForeign">
-        <div style="font-size:24px">٢٠٢٢/٠٦/٢٢</div>
-    </div>
+    <div class="rightSerialNumdivForeign">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+    <div class="rightDatedivForeign">١٤٤٣/١١/٢٣</div>
+    <div class="rightHijriDatedivForeign">٢٠٢٢/٠٦/٢٢</div>
 
     <div class="cleardiv">
         <div class="my-marginForegin">
-            <span style="font-size:26px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
-            <span style="font-size:26px;">الثانوية التركية</span>
+            <span style="font-size:21px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
+            <span style="font-size:24px; font-weight: bold;">الثانوية التركية</span>
             <br>
-            <span style="font-size:26px;">والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا عــــام ٢٠٢١</span>
+            <span style="font-size:21px;">والصادرة عن</span> 
+            <span style="font-size:24px; font-weight: bold;">ثانوية اوميت اسطنبول الدولية الخاصة / تركيا</span> 
+            <span style="font-size:21px;">عــــام</span> 
+            <span style="font-size:24px; font-weight: bold;">٢٠٢١</span>
             <br>
-            <span style="font-size:26px;">للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتــاريـخ ٢٠٠٣/٠٦/١٠</span>
+            <span style="font-size:21px;">للطالب /</span> 
+            <span style="font-size:24px; font-weight: bold;">فيصل عوده حامد الاصفر</span> 
+            <span style="font-size:21px;">المولود في</span> 
+            <span style="font-size:24px; font-weight: bold;">الكرك</span> 
+            <span style="font-size:21px;">بتــاريـخ</span> 
+            <span style="font-size:24px; font-weight: bold;">٢٠٠٣/٠٦/١٠</span>
             <br>
-            <span style="font-size:26px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع / العلمي وبمعدل (٨٥٪).</span>
-
-            <div style="text-align: left; width: 100%;">
-                <span class="my-marginForegin2">وزير التربية والتعليم</span>
-            </div>
+            <span style="font-size:21px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع /</span> 
+            <span style="font-size:24px; font-weight: bold;">العلمي</span> 
+            <span style="font-size:21px;">وبمعدل</span> 
+            <span style="font-size:24px; font-weight: bold;">(٨٥٪).</span>
         </div>
+    </div>
+
+    <div class="signature-container">
+        وزير التربية والتعليم
     </div>
 </page>
 
 <script src="/equatedcerts/js/qrious.min.js"></script>
-<script type="text/javascript">
-    var replaceDigits = function () {
-        // Arabic digit map
-        var map = ["\u0660", "\u0661", "\u0662", "\u0663", "\u0664", "\u0665", "\u0666", "\u0667", "\u0668", "\u0669"];
-        
-        // This logic replaces all English digits with Arabic ones in the text
-        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function (s) { 
-            return map[parseInt(s)]; 
-        });
-
-        // Initialize QR Code
-        var qr = new QRious({
+<script>
+    window.onload = function() {
+        // Generate QR code with specific MOE size
+        new QRious({
             element: document.getElementById('qr-code'),
-            size: 135,
+            size: 120,
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
             foreground: 'black',
             background: 'white',
-            level: 'H',
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
+            level: 'H'
         });
     };
-
-    window.onload = replaceDigits;
 </script>
 
 </body>
