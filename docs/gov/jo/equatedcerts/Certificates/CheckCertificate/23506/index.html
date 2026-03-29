@@ -5,7 +5,7 @@
     <title>الشهادات الأجنبية</title>
     
     <style>
-        /* Loading your local fonts */
+        /* Local Font Setup */
         @font-face {
             font-family: 'DroidNaskh';
             src: url('fonts/Droid-Arabic-Naskh.ttf.woff') format('woff');
@@ -21,9 +21,9 @@
         body {
             background: rgb(204,204,204);
             margin: 0;
-            /* Applying Naskh to the whole body text */
             font-family: 'DroidNaskh', serif;
             color: #000;
+            -webkit-font-smoothing: antialiased;
         }
 
         page {
@@ -37,60 +37,59 @@
             overflow: hidden;
         }
 
-        /* QR Code - Top Left */
+        /* QR Code: Top Left - High Position */
         .imagediv {
             position: absolute;
-            top: 50px;
-            left: 50px;
+            top: 65px;
+            left: 75px;
         }
 
         #qr-code {
-            width: 135px;
-            height: 135px;
+            width: 145px; /* Size matched to scan proportion */
+            height: 145px;
         }
 
-        /* Metadata - Top Right (Droid Naskh) */
+        /* Metadata (ID/Dates): Top Right - Mid-Upper Position */
         .metadata-container {
             position: absolute;
-            top: 180px; 
-            right: 110px;
+            top: 190px; 
+            right: 140px;
             text-align: right;
-            font-size: 24px;
-            line-height: 1.1;
+            font-size: 26px; /* Slightly larger for readability */
+            line-height: 1.3;
             font-family: 'DroidNaskh', serif;
         }
 
-        /* Main Content Body (Droid Naskh) */
+        /* Main Content: Center-Lower Right */
         .content-area {
             position: absolute;
-            top: 380px;
+            top: 420px; /* Large gap after metadata */
             width: 100%;
             text-align: right;
-            line-height: 2.4;
-            padding-right: 110px;
+            line-height: 2.6; /* Increased spacing to match the airy feel of the scan */
+            padding-right: 140px;
             box-sizing: border-box;
         }
 
         .main-text { 
-            font-size: 26px; 
-            font-weight: normal; /* No bold */
+            font-size: 28px; 
+            font-weight: normal;
         }
 
-        /* Signature Section - Bottom Left (Droid Kufi) */
+        /* Signature: Bottom Left - Droid Kufi Bold */
         .signature-section {
             position: absolute;
-            bottom: 80px;
-            left: 110px;
-            /* Exclusively Kufi Bold for this part */
+            bottom: 110px;
+            left: 150px;
             font-family: 'DroidKufi', sans-serif;
-            font-size: 32px;
+            font-size: 34px;
             font-weight: bold;
         }
 
         @media print {
             body { background: none; }
             page { margin: 0; box-shadow: none; }
-            @page { size: landscape; }
+            @page { size: landscape; margin: 0; }
         }
     </style>
 </head>
@@ -129,8 +128,9 @@
     window.onload = function() {
         new QRious({
             element: document.getElementById('qr-code'),
-            size: 250,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
+            size: 300, // Higher resolution for the canvas
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
+            level: 'H'
         });
     };
 </script>
