@@ -1,152 +1,139 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Certificate Example</title>
+    <meta charset="utf-8">
+    <title>الشهادات الأجنبية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background: rgb(204,204,204);
+            margin: 0;
+            font-family: 'Noto Naskh Arabic', serif;
+        }
 
-<style>
-  /* Font Faces */
-  @font-face {
-      font-family: 'Droid-Arabic-Kufi';
-      src: url('../fonts/Droid-Arabic-Kufi.ttf.woff') format('woff'),
-           url('../fonts/Droid-Arabic-Kufi.ttf.svg#Droid-Arabic-Kufi') format('svg'),
-           url('../fonts/Droid-Arabic-Kufi.ttf.eot'),
-           url('../fonts/Droid-Arabic-Kufi.ttf.eot?#iefix') format('embedded-opentype');
-      font-weight: normal;
-      font-style: normal;
-  }
+        page {
+            background: white;
+            display: block;
+            margin: 20px auto;
+            position: relative;
+            width: 29.7cm;
+            height: 21cm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
 
-  @font-face {
-      font-family: 'Droid-Arabic-Naskh';
-      src: url('../fonts/Droid-Arabic-Naskh.ttf.woff') format('woff'),
-           url('../fonts/Droid-Arabic-Naskh.ttf.svg#Droid-Arabic-Naskh') format('svg'),
-           url('../fonts/Droid-Arabic-Naskh.ttf.eot'),
-           url('../fonts/Droid-Arabic-Naskh.ttf.eot?#iefix') format('embedded-opentype');
-      font-weight: normal;
-      font-style: normal;
-  }
+        /* QR Code Position */
+        .imagediv {
+            position: absolute;
+            top: 21%;
+            left: 100px;
+            z-index: 100;
+        }
 
-  @font-face {
-      font-family: 'Calibri';
-      src: url('../fonts/Calibri.ttf.woff') format('woff'),
-           url('../fonts/Calibri.ttf.svg#Calibri') format('svg'),
-           url('../fonts/Calibri.ttf.eot'),
-           url('../fonts/Calibri.ttf.eot?#iefix') format('embedded-opentype');
-      font-weight: normal;
-      font-style: normal;
-  }
+        #qr-code {
+            width: 120px;
+            height: 120px;
+        }
 
-  body {
-    background: #ccc;
-    margin: 0;
-    padding: 0;
-    font-family: 'Droid-Arabic-Naskh', serif;
-    direction: rtl;
-  }
+        /* Metadata positions */
+        .metadata-container {
+            position: absolute;
+            top: 32%;
+            right: 138px;
+            text-align: right;
+            font-size: 24px;
+            line-height: 1.4;
+        }
 
-  .page {
-    background: white;
-    width: 21cm;
-    min-height: 29.7cm;
-    margin: 30px auto;
-    padding: 50px 80px 80px 80px;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
+        .serial-num { margin-right: 56px; }
 
-  /* QR container top-left */
-  .qr-container {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    width: 32mm;
-    height: 32mm;
-    text-align: center;
-  }
+        /* Certificate Body */
+        .content-area {
+            position: absolute;
+            top: 48%;
+            width: 100%;
+            text-align: center;
+            line-height: 2.2;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
 
-  /* Style for QR canvas or img */
-  .qr-container canvas,
-  .qr-container img {
-    width: 32mm !important;
-    height: 32mm !important;
-    display: block;
-    margin: 0 auto;
-  }
+        .main-text { font-size: 21px; text-align: right; padding-right: 40px; }
 
-  /* Top right dates and serial numbers */
-  .top-right-numbers {
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    font-family: 'Droid-Arabic-Naskh', serif;
-    font-size: 14px;
-    line-height: 1.5;
-    text-align: right;
-    white-space: nowrap;
-  }
+        .signature-section {
+            position: absolute;
+            bottom: 8%;
+            left: 177px;
+            font-size: 23px;
+            font-family: 'Cairo', sans-serif;
+        }
 
-  /* Main certificate text block */
-  .certificate-text {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: 150px; /* leave space for QR */
-    font-family: 'Droid-Arabic-Naskh', serif;
-    font-size: 18px;
-    line-height: 1.8;
-    text-align: right;
-    direction: rtl;
-    margin-top: 120px;
-  }
+        /* Keep only the minister bold */
+        .signature-section span {
+            font-weight: bold;
+        }
 
-  /* Signature line */
-  .signature-line {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: 150px;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 40px;
-    text-align: right;
-    direction: rtl;
-    font-family: 'Droid-Arabic-Naskh', serif;
-  }
-</style>
+        @media print {
+            body { background: none; }
+            page { margin: 0; box-shadow: none; }
+            @page { size: landscape; }
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
-    <div class="qr-container">
-      <!-- Replace this with your QR code canvas or image -->
-      <canvas id="qr-code" width="128" height="128"></canvas>
+
+<page size="A4" layout="landscape">
+    <div class="imagediv">
+        <canvas id="qr-code"></canvas>
     </div>
 
-    <div class="top-right-numbers">
-      <div>٢٠٢٢/٠٦/٢٢١٠١٢٠٤١</div>
-      <div>١٤٤٣/١١/٢٣</div>
-      <div>٢٠٢٢/٠٦/٢٢</div>
+    <div class="metadata-container">
+        <div class="serial-num">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+        <div class="date-hijri">١٤٤٣/١١/٢٣</div>
+        <div class="date-gregorian">٢٠٢٢/٠٦/٢٢</div>
     </div>
 
-    <div class="certificate-text">
-      تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية التركية  
-      والصادرة عن ثانوية أوميت اسطنبول الدولية الخاصة / تركيا عام ٢٠٢١  
-      للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتاريخ ٢٠٠٣/٠٦/١٠  
-      تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / العلمي وبمعدل (٨٥٪).
+    <div class="content-area">
+        <div class="main-text">
+            تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنيــــة الهــاشــمـيــــة أن شـهـــــادة 
+            الثانوية التركية
+            <br>
+            والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا
+            عــــام ٢٠٢١
+            <br>
+            للطالب / فيصل عوده حامد الاصفر
+            المولود في الكرك
+            بتــاريـخ ٢٠٠٣/٠٦/١٠
+            <br>
+            تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع / العلمي
+            وبمعدل (٨٥٪).
+        </div>
     </div>
 
-    <div class="signature-line">
-      وزير التربية والتعليم
+    <div class="signature-section">
+        <span>وزير التربية والتعليم</span>
     </div>
-  </div>
+</page>
 
-  <script>
-    // Example QR code generation using QRious library (optional)
-    // If you want, you can include a QR code library or replace with an <img> tag with QR image
-    
-    // This snippet just draws a placeholder square to represent the QR
-    const canvas = document.getElementById('qr-code');
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+<script>
+    window.onload = function() {
+        try {
+            var qr = new QRious({
+                element: document.getElementById('qr-code'),
+                size: 120,
+                value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
+                foreground: 'black',
+                background: 'white'
+            });
+            console.log("QR Code generated successfully.");
+        } catch (e) {
+            console.error("QR Error: ", e);
+        }
+    };
+</script>
+
 </body>
 </html>
