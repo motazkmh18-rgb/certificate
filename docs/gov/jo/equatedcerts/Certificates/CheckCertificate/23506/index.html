@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>الشهادات الأجنبية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Amiri', serif;
+            -webkit-print-color-adjust: exact;
         }
 
         page {
@@ -26,61 +27,58 @@
             box-sizing: border-box;
         }
 
-        /* QR Code Styling */
+        /* QR Code Styling - Top Left */
         .qr-container {
             position: absolute;
-            top: 40px;
-            right: 40px; /* In the image, QR is on the top right for RTL flow usually, but your image shows it on the left. Adjusting to match image: */
-            left: 60px;
-            top: 60px;
+            top: 50px;
+            left: 70px;
         }
 
         #qr-code {
-            width: 110px;
-            height: 110px;
+            width: 105px;
+            height: 105px;
         }
 
         /* Top Right Metadata */
         .metadata-container {
             position: absolute;
-            top: 60px;
-            right: 80px;
+            top: 70px;
+            right: 100px;
             text-align: right;
-            font-size: 26px;
+            font-size: 24px;
             line-height: 1.2;
-            letter-spacing: 1px;
+            color: #000;
         }
 
         /* Main Certificate Text */
         .content-area {
-            margin-top: 280px;
+            margin-top: 260px;
             width: 100%;
-            padding: 0 40px;
+            padding: 0 60px;
             box-sizing: border-box;
         }
 
         .main-text {
-            font-size: 30px;
-            line-height: 1.8;
-            text-align: justify;
-            text-justify: inter-word;
+            font-size: 28px;
+            line-height: 2.1;
+            text-align: right;
             color: #000;
+            font-weight: 400; /* Normal weight for all text */
         }
 
-        /* Styling for the dynamic data parts */
+        /* Specific style for data - removing bold */
         .dynamic-data {
-            font-weight: 400; /* In the image, the text is quite uniform, not overly bold */
-            display: inline-block;
-            margin: 0 5px;
+            font-weight: 400; 
+            margin: 0 2px;
         }
 
-        /* Signature Styling */
+        /* Bold only the Signature title */
         .signature-section {
             position: absolute;
             bottom: 80px;
-            right: 80px;
-            font-size: 32px;
-            font-weight: bold;
+            right: 100px;
+            font-size: 30px;
+            font-weight: 700; /* Bold applied here only */
         }
 
         @media print {
@@ -107,11 +105,11 @@
         <div class="main-text">
             تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية التركية
             <br>
-            والصادرة عن <span class="dynamic-data">ثانوية اوميت اسطنبول الدولية الخاصة / تركيا</span> عام <span class="dynamic-data">٢٠٢١</span>
+            والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا عام ٢٠٢١
             <br>
-            للطالب / <span class="dynamic-data">فيصل عوده حامد الاصفر</span> المولود في <span class="dynamic-data">الكرك</span> بتاريخ <span class="dynamic-data">٢٠٠٣/٠٦/١٠</span>
+            للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتاريخ ٢٠٠٣/٠٦/١٠
             <br>
-            تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / <span class="dynamic-data">العلمي</span> وبمعدل <span class="dynamic-data">(٨٥٪).</span>
+            تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / العلمي وبمعدل (٨٥٪).
         </div>
     </div>
 
@@ -126,7 +124,8 @@
         new QRious({
             element: document.getElementById('qr-code'),
             size: 200,
-            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
+            level: 'H'
         });
     };
 </script>
