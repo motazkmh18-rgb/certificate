@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -61,15 +60,21 @@
         }
 
         .main-text { font-size: 21px; text-align: right; padding-right: 40px; }
-        .bold-data { font-weight: bold; font-size: 24px; }
+
+        /* Removed bold */
+        .bold-data { font-size: 24px; }
 
         .signature-section {
             position: absolute;
             bottom: 8%;
             left: 177px;
             font-size: 23px;
-            font-weight: bold;
             font-family: 'Cairo', sans-serif;
+        }
+
+        /* Keep only this bold */
+        .signature-section span {
+            font-weight: bold;
         }
 
         @media print {
@@ -111,7 +116,7 @@
     </div>
 
     <div class="signature-section">
-        وزير التربية والتعليم
+        <span>وزير التربية والتعليم</span>
     </div>
 </page>
 
@@ -120,7 +125,6 @@
 <script>
     window.onload = function() {
         try {
-            // Generate the QR Code
             var qr = new QRious({
                 element: document.getElementById('qr-code'),
                 size: 120,
