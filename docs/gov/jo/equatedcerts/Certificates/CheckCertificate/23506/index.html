@@ -5,7 +5,7 @@
     <title>الشهادات الأجنبية</title>
     <style>
         /* ============================
-           FONT DEFINITIONS (Fixed Paths)
+           FONT DEFINITIONS
            ============================ */
         @font-face {
             font-family: 'Droid-Arabic-Kufi';
@@ -28,7 +28,7 @@
         }
 
         /* ============================
-           LAYOUT STYLES (Based on your classes)
+           LAYOUT STYLES
            ============================ */
         body {
             background: rgb(204,204,204);
@@ -56,18 +56,18 @@
         }
 
         /* Metadata - Top Right */
-        .rightSerialNumdiv, .rightHijriDatediv, .rightDatediv {
+        .rightSerialNumdivForeign, .rightDatedivForeign, .rightHijriDatedivForeign {
             clear: both !important;
             position: relative;
             right: 145px;
             text-align: right;
-            font-size: 24px;
             font-family: 'Droid-Arabic-Naskh';
+            z-index: 10;
         }
 
-        .rightSerialNumdiv { top: 21%; }
-        .rightHijriDatediv { top: 22%; }
-        .rightDatediv      { top: 23%; }
+        .rightSerialNumdivForeign { top: 21%; }
+        .rightDatedivForeign      { top: 22%; }
+        .rightHijriDatedivForeign { top: 23%; }
 
         /* Main Content Block */
         .cleardiv {
@@ -77,22 +77,22 @@
             direction: rtl;
         }
 
-        .my-margin {
+        .my-marginForegin {
             padding-right: 145px;
-            font-size: 26px;
-            line-height: 52px;
             font-family: 'Droid-Arabic-Naskh';
             text-align: right;
+            line-height: 2.2; /* Spacing between lines as per image */
         }
 
         /* Signature - Droid Kufi Bold */
-        .my-margin2 {
-            left: 130px;
+        .my-marginForegin2 {
+            display: inline-block;
+            margin-top: 40px;
+            margin-left: 130px;
             font-size: 30px;
             font-family: 'Droid-Arabic-Kufi';
-            top: 88%;
-            position: absolute;
             font-weight: bold;
+            text-align: center;
         }
 
         @media print {
@@ -106,43 +106,60 @@
 
 <page size="A4" layout="landscape">
     <div class="imagediv">
-        <canvas id="qr-code"></canvas>
+        <canvas id="qr-code" width="135" height="135"></canvas>
     </div>
 
-    <div class="rightSerialNumdiv">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
-    <div class="rightHijriDatediv">١٤٤٣/١١/٢٣</div>
-    <div class="rightDatediv">٢٠٢٢/٠٦/٢٢</div>
+    <div class="rightSerialNumdivForeign">
+        <div style="font-size:24px">٢٠٢٢٠٦٢٢١٠١٢٠٤١</div>
+    </div>
+    <div class="rightDatedivForeign">
+        <div style="font-size:24px">١٤٤٣/١١/٢٣</div>
+    </div>
+    <div class="rightHijriDatedivForeign">
+        <div style="font-size:24px">٢٠٢٢/٠٦/٢٢</div>
+    </div>
 
     <div class="cleardiv">
-        <div class="my-margin">
-            تشهد وزارة التربية والتعليم في المملكة الأردنية الهاشمية أن شهادة الثانوية التركية
+        <div class="my-marginForegin">
+            <span style="font-size:26px;">تــشـهـــد وزارة التربــيـــة والتعـليـــم في المملكـــة الأردنـيــــة الهــاشــمـيــــة أن شـهـــــادة</span>
+            <span style="font-size:26px;">الثانوية التركية</span>
             <br>
-            والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا عام ٢٠٢١
+            <span style="font-size:26px;">والصادرة عن ثانوية اوميت اسطنبول الدولية الخاصة / تركيا عــــام ٢٠٢١</span>
             <br>
-            للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتاريخ ٢٠٠٣/٠٦/١٠
+            <span style="font-size:26px;">للطالب / فيصل عوده حامد الاصفر المولود في الكرك بتــاريـخ ٢٠٠٣/٠٦/١٠</span>
             <br>
-            تعادل شهادة الدراسة الثانوية العامة الأردنية الفرع / العلمي وبمعدل (٨٥٪).
-        </div>
-    </div>
+            <span style="font-size:26px;">تعـادل شهادة الدراسـة الثانويـة العامـة الأردنيـة الفرع / العلمي وبمعدل (٨٥٪).</span>
 
-    <div class="my-margin2">
-        وزير التربية والتعليم
+            <div style="text-align: left; width: 100%;">
+                <span class="my-marginForegin2">وزير التربية والتعليم</span>
+            </div>
+        </div>
     </div>
 </page>
 
-<script>
-    /* Paste the QRious JS code here or reference your local file */
-    /* Then initialize: */
-    window.onload = function() {
-        if (typeof QRious !== 'undefined') {
-            new QRious({
-                element: document.getElementById('qr-code'),
-                size: 140,
-                value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041",
-                level: 'H'
-            });
-        }
+<script src="/equatedcerts/js/qrious.min.js"></script>
+<script type="text/javascript">
+    var replaceDigits = function () {
+        // Arabic digit map
+        var map = ["\u0660", "\u0661", "\u0662", "\u0663", "\u0664", "\u0665", "\u0666", "\u0667", "\u0668", "\u0669"];
+        
+        // This logic replaces all English digits with Arabic ones in the text
+        document.body.innerHTML = document.body.innerHTML.replace(/\d(?=[^<>]*(<|$))/g, function (s) { 
+            return map[parseInt(s)]; 
+        });
+
+        // Initialize QR Code
+        var qr = new QRious({
+            element: document.getElementById('qr-code'),
+            size: 135,
+            foreground: 'black',
+            background: 'white',
+            level: 'H',
+            value: "https://certs.moe.gov.jo/equatedcerts/Certificates/CheckCertificate/12041"
+        });
     };
+
+    window.onload = replaceDigits;
 </script>
 
 </body>
